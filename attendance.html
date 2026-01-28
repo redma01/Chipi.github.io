@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chipi - Attendance</title>
+    <link rel="stylesheet" href="mainpage.css">
+    <link rel="stylesheet" href="attendance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <script src="https://kit.fontawesome.com/bdc1269674.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="brand">
+            <span class="logo">CHIPI</span>
+        </div>
+        <div class="header-actions">
+            <div class="profile" id="profile">
+                <button id="profileBtn" class="profile-btn" aria-haspopup="true" aria-expanded="false" title="Account">
+                    <img class="avatar" src="CHIPI CHATLOGO.png" alt="Chipi"/>
+                </button>
+                <div class="profile-menu" id="profileMenu" role="menu" aria-hidden="true">
+                    <button role="menuitem" class="menu-item" id="profileSettings">Settings</button>
+                    <button role="menuitem" class="menu-item" id="profileAbout">About</button>
+                    <button role="menuitem" class="menu-item" id="profileContact">Contact</button>
+                    <button role="menuitem" class="menu-item" id="profileLogout">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="app">
+        <aside class="sidebar expanded" id="sidebar">
+            <div class="sidebar-top">
+                <div class="sidebar-brand">
+                    <img class="sidebar-avatar" src="CHIPI DL7.png" alt="Chipi"/>
+                    <div class="sidebar-brand-text">
+                        <div class="chip-name">CHIPI</div>
+                        <div class="chip-sub">AI-integrated digital handbook for teachers</div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn new-convo" id="addSectionBtn" title="New section" aria-label="New section">
+                    <span class="icon">+</span>
+                    <span>New Tab</span>
+                </button>
+
+                <div class="feature-header"><br><b>Tools</b></div>
+                <div class="feature-tabs">
+                  <a href="mainpage.html" class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="aiChatBtn" title="AI Chat" aria-label="AI Chat">
+                      <span><i class="fa-solid fa-comment"></i> AI Chat</span>
+                    </button>
+                  </a>
+                  <div class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="slidesBtn" title="Slides generation" aria-label="Slides generation">
+                      <span><i class="fa-brands fa-slideshare"></i> Slides Generation</span>
+                    </button>
+                  </div>
+                  <a href="attendance.html" class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="attendanceBtn" title="Attendance record" aria-label="Attendance record">
+                      <span><i class="fa-solid fa-user"></i> Attendance Record</span>
+                    </button>
+                  </a>
+                  <div class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="assessmentBtn" title="Assessment creation" aria-label="Assessment creation">
+                      <span><i class="fa-solid fa-sheet-plastic" style="color:green;"></i> Assessment Creation</span>
+                    </button>
+                  </div>
+                  <a href="aidetector.html" class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="aiDetectorBtn" title="AI detector" aria-label="AI detector">
+                      <span><i class="fa-solid fa-user-secret"></i> AI Detector</span>
+                    </button>
+                  </a>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="history-scroll" id="historyScroll">
+                    <div class="section-header">
+                        <div class="section-title">SECTIONS</div>
+                        <button class="btn ghost small section-edit-btn" id="editSectionsBtn" title="Edit sections" aria-pressed="false" aria-label="Edit sections">
+                            <img src="pencil.png" alt="" class="pencil-icon" />
+                            <span class="visually-hidden">Edit</span>
+                        </button>
+                    </div>
+                    <ul class="history-list" id="sectionList"></ul>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div id="emptyStateContainer" style="display: none;">
+                <button id="createSectionBtnEmpty" class="btn">Create section attendance</button>
+            </div>
+            <div id="attendanceContainer">
+                <h2 id="currentSectionName" class="section-title-header"></h2>
+                <div class="student-management">
+                    <h2>Manage Students</h2>
+                    <div class="add-student-form">
+                        <input type="text" id="studentNameInput" placeholder="Enter student name">
+                        <button id="addStudentBtn" class="btn">+ Add Student</button>
+                    </div>
+                </div>
+                <div class="attendance-sheet">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="daily">Daily</button>
+                        <button class="tab-btn" data-tab="monthly">Monthly</button>
+                    </div>
+
+                    <div id="daily" class="tab-content active">
+                        <div class="attendance-header-container">
+                            <div class="date-picker-container">
+                                <label for="attendanceDate">Attendance Date:</label>
+                                <input type="text" id="attendanceDate" placeholder="Select Date">
+                            </div>
+                            <button class="btn ghost small section-edit-btn" id="editStudentsBtn" title="Edit students">
+                                <img src="pencil.png" alt="Edit" class="pencil-icon" />
+                            </button>
+                        </div>
+                        <div class="student-attendance-list" id="studentList">
+                            <div class="student-row">
+                                <span class="student-name">asfd</span>
+                                <div class="attendance-status">
+                                    <button class="status-btn present active">
+                                        <i class="fas fa-check"></i> Present
+                                    </button>
+                                    <button class="status-btn absent">Absent</button>
+                                    <button class="status-btn late">Late</button>
+                                    <button class="status-btn excused">Excused</button>
+                                </div>
+                                <button class="delete-btn"><i class="fa-solid fa-circle-xmark"></i></button>
+                            </div>
+                            <!-- More students will be added here dynamically -->
+                        </div>
+                    </div>
+
+                    <div id="monthly" class="tab-content">
+                        <div class="monthly-header-container">
+                            <label for="monthPicker">Select Month:</label>
+                            <input type="month" id="monthPicker">
+                        </div>
+                        <div id="monthlyAbsenceView">
+                            <!-- Monthly absence data will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="absenceTooltip" class="absence-tooltip"></div>
+        </main>
+    </div>
+
+    <div id="sectionNameModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modalTitle">Create New Section</h3>
+            <input type="text" id="sectionNameInputModal" placeholder="Enter section name">
+            <div class="modal-actions">
+                <button id="cancelSectionName" class="btn">Cancel</button>
+                <button id="saveSectionName" class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="attendance.js"></script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+/* attendance.css */
+
+:root {
+    --primary-orange: #ff9800;
+    --primary-orange-dark: #f57c00;
+    --primary-orange-light: #ffe0b2;
+    --text-color-dark: #212529;
+    --text-color-light: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --border-color: #dee2e6;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.new-convo span {
+    white-space: nowrap;
+}
+
+.main-content {
+    padding: 20px;
+    background-color: rgb(255, 243, 234);
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+#emptyStateContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#createSectionBtnEmpty {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: var(--primary-orange);
+    color: var(--text-color-light);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#createSectionBtnEmpty:hover {
+    background-color: var(--primary-orange-dark);
+}
+
+.section-title-header {
+    text-align: center;
+    font-size: 1.8em;
+    color: var(--text-color-dark);
+    margin-bottom: 20px;
+}
+
+.student-management {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.student-management h2 {
+    padding: 10px 20px 0px 20px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: var(--text-color-dark);
+}
+
+.add-student-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 0px 20px 0px 20px
+}
+
+#studentNameInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+#addStudentBtn {
+    background-color: var(--primary-orange);
+    color: var(--text-color-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 130px;
+}
+
+#addStudentBtn:hover {
+    background-color: var(--primary-orange-dark);
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    color: #6c757d;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+.tab-btn.active {
+    color: var(--primary-orange);
+    border-bottom-color: var(--primary-orange);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.attendance-sheet {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.attendance-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color-dark);
+}
+
+.monthly-header-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color-dark);
+}
+
+.date-input-container {
+    display: flex;
+    align-items: center;
+}
+
+#attendanceDate, #monthPicker {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: var(--text-color-dark);
+    background-color: var(--bg-white);
+}
+
+.pencil-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.section-edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.student-attendance-list {
+    gap: 4px;
+}
+
+.student-row {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 50px 4px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.student-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-color-dark);
+}
+
+.attendance-status {
+    display: flex;
+    gap: 8px;
+}
+
+.status-btn {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-white);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 0 0 10px;
+    font-size: 1.2em;
+    color: #dc3545;
+    line-height: 1;
+    display: none; /* Hide by default */
+}
+
+.student-attendance-list.editing .delete-btn {
+    display: flex; 
+    position: fixed;
+    right: 178px;/* Show when editing */
+    font-size: 20px;
+}
+
+.status-btn:hover {
+    background-color: #f1f3f5;
+}
+
+.status-btn.active {
+    color: var(--text-color-light);
+}
+
+.status-btn.present.active {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.status-btn.absent.active {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.status-btn.late.active {
+    background-color: var(--primary-orange);
+    border-color: var(--primary-orange);
+    color: var(--text-color-light);
+}
+
+.status-btn.excused.active {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+#monthlyAbsenceView h3 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+#monthlyAbsenceView ul {
+    list-style: none;
+    padding: 0;
+}
+
+#monthlyAbsenceView li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.student-list-container {
+    margin-top: 20px;
+}
+
+#studentList, #attendanceStudentList ul {
+    list-style: none;
+    padding: 0;
+}
+
+#studentList li, #attendanceStudentList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.student-actions button, .attendance-actions button {
+    margin-left: auto;
+    padding: 0 5px; /* Minimal padding */
+}
+
+.date-picker-container {
+    display: flex;
+    align-items: center;
+}
+
+.date-picker-container input {
+    margin-left: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    width: 150px; /* Adjust width as needed */
+}
+
+.absence-tooltip {
+    position: absolute;
+    display: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    pointer-events: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.absence-tooltip h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 16px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+.absence-tooltip ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove the old custom date picker styles */
+/* 
+.custom-date-picker { ... }
+#dateDisplay { ... }
+.custom-date-picker .fa-calendar-days { ... }
+.custom-date-picker input[type="date"] { ... }
+*/
+
+.custom-date-picker {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 220px;
+    height: 38px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+#dateDisplay {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+}
+
+.custom-date-picker .fa-calendar-days {
+    color: #888;
+    pointer-events: none;
+}
+
+.custom-date-picker input[type="date"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-date-picker input[type="date"]::-webkit-calendar-picker-indicator,
+.custom-date-picker input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.status-btn:hover {
+    background-color: #f1f3f5;
+}
+
+.status-btn.active {
+    color: var(--text-color-light);
+}
+
+.status-btn.present.active {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.status-btn.absent.active {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.status-btn.late.active {
+    background-color: var(--primary-orange);
+    border-color: var(--primary-orange);
+    color: var(--text-color-light);
+}
+
+.status-btn.excused.active {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+#monthlyAbsenceView h3 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+#monthlyAbsenceView ul {
+    list-style: none;
+    padding: 0;
+}
+
+#monthlyAbsenceView li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.student-list-container {
+    margin-top: 20px;
+}
+
+#studentList, #attendanceStudentList ul {
+    list-style: none;
+    padding: 0;
+}
+
+#studentList li, #attendanceStudentList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.student-actions button, .attendance-actions button {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.month-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#currentMonth {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#monthlyAbsenceView {
+    margin-top: 10px;
+}
+
+.history-item .history-item-actions {
+    display: none;
+    align-items: center;
+}
+
+.history-list.editing .history-item .history-item-actions {
+    display: flex;
+}
+
+.history-item.active {
+    background-color: #e6f9ff;
+}
+
+.history-item .delete-btn {
+    color: #dc3545;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+}
+
+#sectionNameInputModal {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}

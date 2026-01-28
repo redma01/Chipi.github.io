@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chipi - AI Detector</title>
+    <link rel="stylesheet" href="mainpage.css">
+    <link rel="stylesheet" href="aidetector.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/bdc1269674.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="brand">
+            <span class="logo">CHIPI</span>
+        </div>
+        <div class="header-actions">
+            <div class="profile" id="profile">
+                <button id="profileBtn" class="profile-btn" aria-haspopup="true" aria-expanded="false" title="Account">
+                    <img class="avatar" src="CHIPI CHATLOGO.png" alt="Chipi"/>
+                </button>
+                <div class="profile-menu" id="profileMenu" role="menu" aria-hidden="true">
+                    <button role="menuitem" class="menu-item" id="profileSettings">Settings</button>
+                    <button role="menuitem" class="menu-item" id="profileAbout">About</button>
+                    <button role="menuitem" class="menu-item" id="profileContact">Contact</button>
+                    <button role="menuitem" class="menu-item" id="profileLogout">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="app">
+        <aside class="sidebar expanded" id="sidebar">
+            <div class="sidebar-top">
+                <div class="sidebar-brand">
+                    <img class="sidebar-avatar" src="CHIPI DL7.png" alt="Chipi"/>
+                    <div class="sidebar-brand-text">
+                        <div class="chip-name">CHIPI</div>
+                        <div class="chip-sub">AI-integrated digital handbook for teachers</div>
+                    </div>
+                </div>
+
+                <div class="feature-header"><br><b>Tools</b></div>
+                <div class="feature-tabs">
+                  <a href="mainpage.html" class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="aiChatBtn" title="AI Chat" aria-label="AI Chat">
+                      <span><i class="fa-solid fa-comment"></i> AI Chat</span>
+                    </button>
+                  </a>
+                  <div class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="slidesBtn" title="Slides generation" aria-label="Slides generation">
+                      <span><i class="fa-brands fa-slideshare"></i> Slides Generation</span>
+                    </button>
+                  </div>
+                  <a href="attendance.html" class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="attendanceBtn" title="Attendance record" aria-label="Attendance record">
+                      <span><i class="fa-solid fa-user"></i> Attendance Record</span>
+                    </button>
+                  </a>
+                  <div class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="assessmentBtn" title="Assessment creation" aria-label="Assessment creation">
+                      <span><i class="fa-solid fa-sheet-plastic" style="color:green;"></i> Assessment Creation</span>
+                    </button>
+                  </div>
+                  <a href="aidetector.html" class="feature-tab-container">
+                    <button type="button" class="btn feature-tab" id="aiDetectorBtn" title="AI detector" aria-label="AI detector">
+                      <span><i class="fa-solid fa-user-secret"></i> AI Detector</span>
+                    </button>
+                  </a>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="detector-container">
+                <div class="text-area-container">
+                    <h2>Input Text</h2>
+                    <textarea id="inputText" placeholder="Paste your text here to check for AI-generated content..."></textarea>
+                    <button id="analyzeBtn" class="btn">Analyze</button>
+                </div>
+                <div class="text-area-container">
+                    <h2>Analysis</h2>
+                    <div id="analysisSummary"></div>
+                    <div id="outputText" class="output-text"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="aidetector.js"></script>
+</body>
+</html>

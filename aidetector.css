@@ -1,0 +1,73 @@
+/* aidetector.css */
+
+.main-content {
+    background-color: rgb(234, 243, 255);
+}
+
+.detector-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 104px);
+}
+
+.text-area-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.text-area-container h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #212529;
+}
+
+#inputText, .output-text {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1em;
+    line-height: 1.6;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#inputText {
+    resize: none;
+    padding-bottom: 60px; /* Make space for the button */
+}
+
+.output-text {
+    overflow-y: auto;
+}
+
+#analysisSummary {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    font-size: 1.1em;
+    font-weight: 500;
+    display: none; /* Hidden by default */
+}
+
+#analyzeBtn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: auto;
+    margin: 0;
+}
+
+.highlight {
+    background-color: #b2d2ff; /* Light orange highlight for stylistic words */
+}
+
+.highlight-repetition {
+    background-color: #cde9ff; /* Light red highlight for repetitions */
+}

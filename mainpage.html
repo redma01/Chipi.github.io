@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chipi — AI Handbook for Teachers</title>
+  <link rel="stylesheet" href="mainpage.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
+  <!-- Webkit Icons-->
+  <script src="https://kit.fontawesome.com/bdc1269674.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <span class="logo">CHIPI</span>
+    </div>
+    <div class="header-actions">
+      <div class="profile" id="profile">
+        <button id="profileBtn" class="profile-btn" aria-haspopup="true" aria-expanded="false" title="Account">
+          <img class="avatar" src="CHIPI CHATLOGO.png" alt="Chipi"/>
+        </button>
+        <div class="profile-menu" id="profileMenu" role="menu" aria-hidden="true">
+          <button role="menuitem" class="menu-item" id="profileSettings">Settings</button>
+          <button role="menuitem" class="menu-item" id="profileAbout">About</button>
+          <button role="menuitem" class="menu-item" id="profileContact">Contact</button>
+          <button role="menuitem" class="menu-item" id="profileLogout">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- App layout -->
+  <div class="app">
+    <!-- Sidebar (fixed, always visible) -->
+    <aside class="sidebar expanded" id="sidebar">
+      <div class="sidebar-top">
+        <div class="sidebar-brand">
+          <img class="sidebar-avatar" src="CHIPI DL7.png" alt="Chipi"/>
+          <div class="sidebar-brand-text">
+            <div class="chip-name">CHIPI</div>
+            <div class="chip-sub">AI-integrated digital handbook for teachers</div>
+          </div>
+        </div>
+
+        <button type="button" class="btn new-convo" id="addTabBtn" title="New conversation" aria-label="New conversation">
+          <span class="icon">+</span>
+          <span>New conversation</span>
+        </button>
+
+  <!-- Feature tabs -->
+        <div class="feature-header"><br><b>Tools</b></div>
+        <div class="feature-tabs">
+          <a href="mainpage.html" class="feature-tab-container">
+            <button type="button" class="btn feature-tab" id="aiChatBtn" title="AI Chat" aria-label="AI Chat">
+              <span><i class="fa-solid fa-comment"></i> AI Chat</span>
+            </button>
+          </a>
+          <a href="slides.html" class="feature-tab-container">
+            <button type="button" class="btn feature-tab" id="slidesBtn" title="Slides generation" aria-label="Slides generation">
+              <span><i class="fa-brands fa-slideshare"></i> Slides Generation</span>
+            </button>
+          </a>
+          <a href="attendance.html" class="feature-tab-container">
+            <button type="button" class="btn feature-tab" id="attendanceBtn" title="Attendance record" aria-label="Attendance record">
+              <span><i class="fa-solid fa-user"></i> Attendance Record</span>
+            </button>
+          </a>
+          <a href="aidetector.html" class="feature-tab-container">
+            <button type="button" class="btn feature-tab" id="aiDetectorBtn" title="AI detector" aria-label="AI detector">
+              <span><i class="fa-solid fa-user-secret"></i> AI Detector</span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="history-scroll" id="historyScroll">
+          <div class="section-header">
+            <div class="section-title">HISTORY</div>
+            <button class="btn ghost small section-edit-btn" id="editHistoryBtn" title="Edit conversations" aria-pressed="false" aria-label="Edit history">
+              <img src="pencil.png" alt="" class="pencil-icon" />
+              <span class="visually-hidden">Edit</span>
+            </button>
+
+          </div>
+
+          <ul class="history-list" id="historyList"></ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="chat">
+      <div class="messages" id="messages"></div>
+      <section class="input-area" id="inputArea">
+        <div class="input-wrap">
+          <textarea id="userInput" rows="1" placeholder="Ask Chipi anything…" autocomplete="off" aria-label="Message input"></textarea>
+          <button class="btn icon send-btn" id="sendBtn" title="Send" aria-label="Send">
+            <img src="paperplane.png" alt="Send" class="send-icon" />
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <input type="file" id="importFile" accept="application/json" hidden />
+  <div id="toastContainer" aria-live="polite" class="toast-container"></div>
+
+  <!-- Typing template -->
+  <template id="typingTemplate">
+    <div class="message ai typing">
+      <div class="bubble">
+        <div class="typing-indicator">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- Introduction template -->
+  <template id="introductionTemplate">
+    <div class="introduction">
+      <img src="CHIPI DL8.png" alt="Chipi Introduction" class="intro-image" />
+      <h1 class="intro-title"><span class="chipi-gradient">CHIPI</span> welcomes you</h1>
+      <p class="intro-description">Hi there! I'm Chipi, your friendly classroom assistant — here to help with technology, lesson planning, assessments, and presentations!</p>
+      <div class="intro-buttons">
+        <button id="lessonPlanningBtn" class="lesson-plan-btn">
+          <div class="lesson-plan-btn-icon-wrapper">
+              <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="lesson-plan-btn-text">
+              <span class="lesson-plan-btn-title">Lesson planning</span>
+              <span class="lesson-plan-btn-subtitle">I need help creating a lesson plan.</span>
+          </div>
+        </button>
+        <button id="assessmentBtn" class="lesson-plan-btn">
+            <div class="lesson-plan-btn-icon-wrapper">
+                <i class="fa-solid fa-sheet-plastic"></i>
+            </div>
+            <div class="lesson-plan-btn-text">
+                <span class="lesson-plan-btn-title">Assessment Creation</span>
+                <span class="lesson-plan-btn-subtitle">I need help creating an assessment.</span>
+            </div>
+        </button>
+      </div>
+    </div>
+  </template>
+
+  <!-- Lesson Planning Modal -->
+  <div id="lessonPlanningModal" class="modal-container" style="display: none;">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Create a Lesson Plan</h2>
+      <form id="lessonPlanForm">
+        <div class="form-group">
+          <label for="gradeLevel">Grade Level:</label>
+          <select id="gradeLevel" name="gradeLevel">
+            <option value="6">Grade 6 (Matatag)</option>
+            <option value="7">Grade 7 (Matatag)</option>
+            <option value="8">Grade 8 (K-12)</option>
+            <option value="9">Grade 9 (K-12)</option>
+            <option value="10">Grade 10 (K-12)</option>
+            <option value="11">Grade 11 (K-12)</option>
+            <option value="12">Grade 12 (K-12)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quarter">Quarter:</label>
+          <select id="quarter" name="quarter">
+            <option value="1">1st Quarter</option>
+            <option value="2">2nd Quarter</option>
+            <option value="3">3rd Quarter</option>
+            <option value="4">4th Quarter</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" placeholder="e.g., Mathematics, Science">
+        </div>
+        <div class="form-group">
+          <label for="lesson">Lesson Topic:</label>
+          <input type="text" id="lesson" name="lesson" placeholder="e.g., Introduction to Algebra">
+        </div>
+        <button type="submit" class="btn">Generate Prompt</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Assessment Creation Modal -->
+    <div id="assessmentCreationModal" class="modal-container" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Create an Assessment</h2>
+            <form id="assessmentCreationForm">
+                <div class="form-group">
+                    <label for="assessmentGradeLevel">Grade Level:</label>
+                    <select id="assessmentGradeLevel" name="gradeLevel">
+                        <option value="6">Grade 6 (Matatag)</option>
+                        <option value="7">Grade 7 (Matatag)</option>
+                        <option value="8">Grade 8 (K-12)</option>
+                        <option value="9">Grade 9 (K-12)</option>
+                        <option value="10">Grade 10 (K-12)</option>
+                        <option value="11">Grade 11 (K-12)</option>
+                        <option value="12">Grade 12 (K-12)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assessmentQuarter">Quarter:</label>
+                    <select id="assessmentQuarter" name="quarter">
+                        <option value="1">1st Quarter</option>
+                        <option value="2">2nd Quarter</option>
+                        <option value="3">3rd Quarter</option>
+                        <option value="4">4th Quarter</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assessmentSubject">Subject:</label>
+                    <input type="text" id="assessmentSubject" name="subject" placeholder="e.g., Mathematics, Science">
+                </div>
+                <div class="form-group">
+                    <label for="assessmentTopic">Lesson Topic:</label>
+                    <input type="text" id="assessmentTopic" name="lesson" placeholder="e.g., Introduction to Algebra">
+                </div>
+                <div class="form-group">
+                    <label for="assessmentType">Type of Assessment:</label>
+                    <select id="assessmentType" name="assessmentType">
+                        <option value="Multiple Choice">Multiple Choice</option>
+                        <option value="True or False">True or False</option>
+                        <option value="Essay">Essay</option>
+                        <option value="Fill in the Blanks">Fill in the Blanks</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assessmentItems">Number of Items:</label>
+                    <input type="number" id="assessmentItems" name="assessmentItems" min="1" max="50" value="10">
+                </div>
+                <button type="submit" class="btn">Generate Assessment</button>
+            </form>
+        </div>
+    </div>
+
+  <script src="mainpage.js"></script>
+</body>
+</html>
