@@ -1,17 +1,11 @@
 // ===== ACCESS KEY =====
 const accessKey = sessionStorage.getItem("chipi_access_key");
 
-// ===== CONFIG =====
-const OPENROUTER_API_KEY = "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";
+// API Configuration
 const OPENROUTER_MODEL = "openai/gpt-4o-mini";
-const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const DEFAULT_OPENROUTER_API_KEY = OPENROUTER_API_KEY;
+const OPENROUTER_URL = "https://asia-southeast1-chipi-d90e8.cloudfunctions.net/openrouter";
 
 // Get user-specific API key or fallback to default
-function getUserAPIKey() {
-  const userKey = localStorage.getItem(`chipi_openrouter_api_key_${accessKey}`);
-  return userKey || DEFAULT_OPENROUTER_API_KEY;
-}
 
 
 // Firebase config
@@ -44,7 +38,7 @@ let isSending = false;
 // ===== AUTH CHECK =====
 if (!accessKey) {
     // No access key, redirect to startup page
-    window.location.href = "Index.html";
+    window.location.href = "index.html";
 } else {
     // Access key present, proceed with app initialization
     // Check if DOM is already loaded or wait for it
@@ -201,11 +195,7 @@ if (e.key === 'Escape' && profileMenu && profileMenu.classList.contains('open'))
     // Menu item actions
     profileSettings?.addEventListener('click', () => {
       toggleProfileMenu(false);
-      const newKey = prompt('Enter your API key:', getUserAPIKey());
-      if (newKey && newKey.trim()) {
-        localStorage.setItem(`chipi_openrouter_api_key_${accessKey}`, newKey.trim());
-        showToast('API key updated. Refresh the page to apply changes.');
-      }
+      showToast('API access is managed by the server. No API key is required in the browser.');
     });
     profileAbout?.addEventListener('click', () => { toggleProfileMenu(false); showToast('Chipi — AI Handbook for Teachers — v1.0'); });
     profileContact?.addEventListener('click', () => { toggleProfileMenu(false); window.location.href = 'mailto:support@chipi.example'; });
@@ -213,7 +203,7 @@ if (e.key === 'Escape' && profileMenu && profileMenu.classList.contains('open'))
       toggleProfileMenu(false);
       // Clear access key and redirect to startup page
       sessionStorage.removeItem("chipi_access_key");
-      window.location.href = "Index.html";
+      window.location.href = "index.html";
     });
 
     // Keyboard activation for menu items
@@ -430,15 +420,13 @@ async function callAI(userPrompt) {
   const systemPrompt = "You are Chipi, an AI-powered Teacher Assistant and EdTech Support system. Your role is to support teachers in instructional, administrative, and technical tasks, improving efficiency and quality. You are a supportive tool, not a decision-maker, maintaining professionalism, accuracy, and ethics.\n\nAlways maintain a professional, supportive tone. Provide guidance without replacing judgment. Respect privacy, avoid sensitive data. Do not override policies or make final decisions. Responses are clear, structured, actionable.\n\nKey functions:\n- Lesson planning: Generate plans aligned with standards, suggest strategies, materials, and activities for various environments.\n- Assessment: Create quizzes, exams, rubrics; assist with basic feedback.\n- Instructional materials: Generate slides, worksheets, handouts.\n- Classroom support: Offer management strategies, engagement techniques, inclusive approaches.\n- Administrative tasks: Draft letters, reports, organize documentation.\n- Communication: Compose emails, announcements professionally.\n- Technical support: Guide on app features, digital tools, explain concepts simply.\n- AI integration: Explain and assist with AI tools responsibly.\n- Research & development: Help with writing, summarizing, reflective practices.";
   const fullPrompt = systemPrompt + "\n\n" + userPrompt;
 
-  const userApiKey = getUserAPIKey();
   const url = OPENROUTER_URL;
 
   const res = await fetch(url, {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${userApiKey}`,
       "Content-Type": "application/json"
-},
+    },
     body: JSON.stringify({
       model: OPENROUTER_MODEL,
       messages: [
@@ -972,10 +960,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const editHistoryBtn = document.getElementById('editHistoryBtn');
     const profileBtn = document.getElementById('profileBtn');
     const profileMenu = document.getElementById('profileMenu');
-    const lessonPlanningModal = document.getElementById('lessonPlanningModal');
-    const lessonPlanForm = document.getElementById('lessonPlanForm');
     const assessmentCreationModal = document.getElementById('assessmentCreationModal');
+    const lessonPlanningModal = document.getElementById('lessonPlanningModal');
     const assessmentCreationForm = document.getElementById('assessmentCreationForm');
+    const lessonPlanningForm = document.getElementById('lessonPlanningForm');
 
     // Restore event listeners for core chat functions
     if (sendBtn) sendBtn.addEventListener('click', sendMessage);
@@ -1009,72 +997,36 @@ document.addEventListener('DOMContentLoaded', () => {
             if (lessonPlanningModal) lessonPlanningModal.style.display = "block";
         }
 
-        // Handle Assessment Creation button click
-        if (event.target.matches('#assessmentBtn, #assessmentBtn *')) {
-            if (assessmentCreationModal) assessmentCreationModal.style.display = "block";
-        }
-
         // Handle modal close buttons
         if (event.target.classList.contains('close-btn')) {
-            if (lessonPlanningModal) lessonPlanningModal.style.display = "none";
             if (assessmentCreationModal) assessmentCreationModal.style.display = "none";
+            if (lessonPlanningModal) lessonPlanningModal.style.display = "none";
         }
     });
 
     // Close modals if user clicks outside of them
     window.addEventListener('click', function(event) {
-        if (event.target === lessonPlanningModal) {
-            lessonPlanningModal.style.display = "none";
-        }
         if (event.target === assessmentCreationModal) {
             assessmentCreationModal.style.display = "none";
         }
+        if (event.target === lessonPlanningModal) {
+            lessonPlanningModal.style.display = "none";
+        }
     });
 
-    // Handle Lesson Plan form submission
-    if (lessonPlanForm) {
-        lessonPlanForm.addEventListener('submit', (e) => {
+    // Handle Assessment Creation form submission
+    if (assessmentCreationForm) {
+        assessmentCreationForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const subject = document.getElementById("subject").value;
-            const grade = document.getElementById("grade").value;
-            const topic = document.getElementById("topic").value;
-            const duration = document.getElementById("duration").value;
-            const objective = document.getElementById("objective").value;
-            const materials = document.getElementById("materials").value;
-
-            const prompt = `Create a lesson plan for a ${grade} grade ${subject} class. The topic is "${topic}". The lesson duration is ${duration} minutes. The learning objective is "${objective}". The materials available are "${materials}".`;
-            
-            // Set user input and send message
-            const userInputEl = document.getElementById("user-input");
-            userInputEl.value = prompt;
-            sendMessage();
-
-            // Close the modal
-            const lessonPlanningModal = document.getElementById("lessonPlanningModal");
-            lessonPlanningModal.style.display = "none";
+            // The form submission is handled by assessment-creation.js generateAssessment()
         });
     }
 
-    const assessmentForm = document.getElementById("assessment-form");
-    if(assessmentForm) {
-        assessmentForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            const subject = document.getElementById("assessment-subject").value;
-            const grade = document.getElementById("assessment-grade").value;
-            const topic = document.getElementById("assessment-topic").value;
-            const numQuestions = document.getElementById("assessment-questions").value;
-            const questionType = document.getElementById("assessment-type").value;
-
-            const prompt = `Create an assessment for a ${grade} grade ${subject} class on the topic of "${topic}". The assessment should have ${numQuestions} ${questionType} questions.`;
-
-            // Set user input and send message
-            const userInputEl = document.getElementById("user-input");
-            userInputEl.value = prompt;
-            sendMessage();
-
-            // Close the modal
-            const assessmentCreationModal = document.getElementById("assessmentCreationModal");
-            assessmentCreationModal.style.display = "none";
+    // Handle Lesson Planning form submission
+    if (lessonPlanningForm) {
+        lessonPlanningForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // The form submission is handled by lesson-planning.js generateLessonPlan()
         });
     }
 });

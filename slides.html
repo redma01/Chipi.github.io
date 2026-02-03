@@ -6,7 +6,6 @@
   <title>Chipi — Visual Slides</title>
   <link rel="stylesheet" href="mainpage.css" />
   <link rel="stylesheet" href="slides.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
@@ -15,6 +14,10 @@
 
   <!-- Webkit Icons-->
   <script src="https://kit.fontawesome.com/bdc1269674.js" crossorigin="anonymous"></script>
+  
+  <!-- PDF Reader-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+
 </head>
 <body>
   <!-- Header -->
@@ -50,11 +53,6 @@
           </div>
         </div>
 
-        <button type="button" class="btn new-convo" id="addTabBtn" title="New conversation" aria-label="New conversation">
-          <span class="icon">+</span>
-          <span>New conversation</span>
-        </button>
-
         <!-- Feature tabs -->
         <div class="feature-header"><br><b>Tools</b></div>
         <div class="feature-tabs">
@@ -63,78 +61,177 @@
               <span><i class="fa-solid fa-comment"></i> AI Chat</span>
             </button>
           </a>
-          <a href="slides.html" class="feature-tab-container">
+          <div class="feature-tab-container">
             <button type="button" class="btn feature-tab" id="slidesBtn" title="Slides generation" aria-label="Slides generation">
               <span><i class="fa-brands fa-slideshare"></i> Slides Generation</span>
             </button>
-          </a>
+          </div>
           <a href="attendance.html" class="feature-tab-container">
             <button type="button" class="btn feature-tab" id="attendanceBtn" title="Attendance record" aria-label="Attendance record">
               <span><i class="fa-solid fa-user"></i> Attendance Record</span>
             </button>
           </a>
           <a href="aidetector.html" class="feature-tab-container">
-            <button type="button" class="btn feature-tab" id="aiDetectorBtn" title="AI detector" aria-label="AI detector">
-              <span><i class="fa-solid fa-user-secret"></i> AI Detector</span>
+            <button type="button" class="btn feature-tab" id="aidetectorBtn" title="AI Detector" aria-label="AI Detector">
+              <span><i class="fa-solid fa-wand-magic-sparkles"></i> AI Detector</span>
             </button>
           </a>
         </div>
+
+        <button type="button" class="btn new-convo" id="newSlidesBtn" style="margin-top: 16px;" title="View saved slides" aria-label="View saved slides">
+          <span class="icon"><i class="fa-solid fa-history"></i></span>
+          <span>View Saved Slides</span>
+        </button>
       </div>
 
       <div class="sidebar-section">
-        <div class="history-scroll" id="historyScroll">
-          <div class="section-header">
-            <div class="section-title">HISTORY</div>
-            <button class="btn ghost small section-edit-btn" id="editHistoryBtn" title="Edit conversations" aria-pressed="false" aria-label="Edit history">
-              <img src="pencil.png" alt="" class="pencil-icon" />
-              <span class="visually-hidden">Edit</span>
-            </button>
-          </div>
-          <ul class="history-list" id="historyList"></ul>
-        </div>
-      </div>
     </aside>
 
     <!-- Main content area -->
     <main class="main-content">
-        <div class="slides-container">
-            <div class="slides-header">
-                <h1>Create Visual Slides</h1>
-                <p>Upload a PDF or paste your lesson to create student-friendly presentations!</p>
-            </div>
-            <div class="slides-form">
-                <div class="upload-section">
-                    <label for="pdf-upload" class="upload-label">
-                        <div class="upload-box">
-                            <i class="fas fa-upload"></i>
-                            <p>Click to upload PDF</p>
-                            <span>or drag and drop</span>
+        <!-- Slides Form Container -->
+        <div id="slides-form-container" class="slides-form-container">
+            <div class="slides-container">
+                <img src = "CHIPI DL 1.png" style="height: 200px; width: auto;  display: block; margin-left: auto; margin-right: auto; margin-bottom: -20px;">
+                <div class="slides-header">
+                    <h1>Create Visual Slides</h1>
+                    <p>Upload a PDF or paste your lesson to create student-friendly presentations!</p>
+                </div>
+                <div class="slides-form">
+                    <div class="form-group">
+                        <label>Upload PDF Module</label>
+                        <div class="upload-section">
+                            <label for="pdf-upload" class="upload-label">
+                                <div class="upload-box">
+                                    <i class="fas fa-upload"></i>
+                                    <p>Click to upload PDF</p>
+                                    <span>or drag and drop</span>
+                                </div>
+                            </label>
+                            <input type="file" id="pdf-upload" hidden>
                         </div>
-                    </label>
-                    <input type="file" id="pdf-upload" hidden>
+                        <div class="progress-container" id="progress-container" style="display: none;">
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" id="progress-bar"></div>
+                            </div>
+                            <div class="progress-text">Processing PDF: <span id="progress-percentage">0</span>%</div>
+                        </div>
+                    </div>
+                    <div class="or-divider">OR</div>
+                    <div class="form-group">
+                        <label for="grade-level">Grade Level</label>
+                        <input type="text" id="grade-level" placeholder="e.g., 5th Grade, Middle School, High School">
+                    </div>
+                    <div class="form-group">
+                        <label for="lesson-content">Lesson Content</label>
+                        <textarea id="lesson-content" rows="8" placeholder="Paste your lesson module, notes, or content here. Chipi will transform it into visual, student-friendly slides..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="ai-instructions">AI Instructions (Optional)</label>
+                        <input type="text" id="ai-instructions" placeholder="e.g., Make it funny, focus on vocabulary, add a quiz at the end...">
+                    </div>
+                    <button class="generate-btn" id="generate-btn">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                        Generate Visual Slides
+                    </button>
                 </div>
-                <div class="or-divider">OR</div>
-                <div class="form-group">
-                    <label for="grade-level">Grade Level</label>
-                    <input type="text" id="grade-level" placeholder="e.g., 5th Grade, Middle School, High School">
-                </div>
-                <div class="form-group">
-                    <label for="lesson-content">Lesson Content</label>
-                    <textarea id="lesson-content" rows="8" placeholder="Paste your lesson module, notes, or content here. Chipi will transform it into visual, student-friendly slides..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="ai-instructions">AI Instructions (Optional)</label>
-                    <input type="text" id="ai-instructions" placeholder="e.g., Make it funny, focus on vocabulary, add a quiz at the end...">
-                </div>
-                <button class="generate-btn">
-                    <i class="fas fa-wand-magic-sparkles"></i>
-                    Generate Visual Slides
+            </div>
+        </div>
+
+        <!-- Slides Presentation Container -->
+        <div id="slides-presentation-container" class="slides-presentation-container" style="display: none;">
+            <!-- Slides Navigation Bar -->
+            <div class="slides-nav-bar">
+                <button class="slides-nav-btn" id="back-to-form-btn" title="Back to form">
+                    <i class="fas fa-arrow-left"></i>
                 </button>
+                <div class="slides-info">
+                    <span id="current-slide">1</span> / <span id="total-slides">0</span>
+                </div>
+                <div class="slides-actions">
+                    <button class="slides-nav-btn" id="edit-slide-btn" title="Edit slide">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="slides-nav-btn" id="history-slides-btn" title="View saved slides">
+                        <i class="fas fa-history"></i>
+                    </button>
+                    <button class="slides-nav-btn" id="save-slides-btn" title="Save slides to history">
+                        <i class="fas fa-save"></i>
+                    </button>
+                    <button class="slides-nav-btn" id="fullscreen-btn" title="Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div class="slides-loading" id="slides-loading" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>CHIPI is analyzing your content...</p>
+            </div>
+
+            <!-- Main Slides Area -->
+            <div class="slides-main-area">
+                <button class="slide-arrow prev-arrow" id="prev-slide-btn" title="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="slide-container">
+                    <div class="slide" id="current-slide-content">
+                        <!-- Slide content will be inserted here -->
+                    </div>
+                </div>
+
+                <button class="slide-arrow next-arrow" id="next-slide-btn" title="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Slides Thumbnails -->
+            <div class="slides-thumbnails" id="slides-thumbnails">
+                <!-- Thumbnails will be inserted here -->
+            </div>
+
+            <!-- Edit Modal -->
+            <div class="edit-modal" id="edit-modal" style="display: none;">
+                <div class="edit-modal-content">
+                    <div class="edit-modal-header">
+                        <h3>Edit Slide</h3>
+                        <button class="close-edit-btn" id="close-edit-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="edit-modal-body" id="edit-modal-body">
+                        <!-- Edit form will be inserted here -->
+                    </div>
+                    <div class="edit-modal-footer">
+                        <button class="btn-cancel" id="cancel-edit-btn">Cancel</button>
+                        <button class="btn-save" id="save-edit-btn">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History/Saved Slides Container -->
+        <div id="slides-history-container" class="slides-history-container" style="display: none;">
+            <div class="history-header">
+                <h2>Saved Slides</h2>
+                <button class="slides-nav-btn" id="back-to-form-from-history" title="Back to form">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+            <div class="history-content">
+                <div id="slides-history-list" class="slides-history-list">
+                    <!-- Saved slides will be listed here -->
+                </div>
             </div>
         </div>
     </main>
   </div>
 
-  <script src="mainpage.js"></script>
+  <link rel="stylesheet" href="assessment-creation.css">
+  <script src="slides.js"></script>
+  <script src="assessment-creation.js"></script>
+  <script src="lesson-planning.js"></script>
 </body>
 </html>

@@ -6,10 +6,84 @@
     <title>Chipi - Attendance</title>
     <link rel="stylesheet" href="mainpage.css">
     <link rel="stylesheet" href="attendance.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
   <script src="https://kit.fontawesome.com/bdc1269674.js" crossorigin="anonymous"></script>
+  <style>
+    /* Center the section name modal and constrain its content height */
+    #sectionNameModal {
+      position: fixed;
+      inset: 0;
+      display: none; /* JS toggles to flex when opened */
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+    }
+    #sectionNameModal .modal-content {
+      width: 90%;
+      max-width: 420px;
+      height: 200px; /* requested fixed height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: auto; /* allow scroll if content exceeds */
+      border-radius: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* Sections edit-mode delete control behavior */
+    #sectionList .history-item .history-item-actions { display: none; }
+    #sectionList.editing .history-item .history-item-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    #sectionList .history-item .history-item-actions .delete-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  /* Force independent right alignment of actions regardless of text length */
+    #sectionList .history-item {
+      position: relative;
+      padding-right: 56px; /* reserve space for actions */
+      min-height: 44px;    /* consistent click target height */
+    }
+    #sectionList .history-item .history-item-actions {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 0; /* override any previous auto margin */
+    }
+  /* Delete modal (confirm) styling — match Create New Section modal */
+    #deleteSectionModal {
+      position: fixed;
+      inset: 0;
+      display: none; /* toggled to flex when opened */
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.4);
+      z-index: 1000;
+    }
+    #deleteSectionModal .modal-content {
+      width: 90%;
+      max-width: 420px;
+      height: 200px; /* same fixed height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* vertically center content */
+      overflow: auto; /* allow scroll if content exceeds */
+      border-radius: 10px;
+    }
+
+    /* Delete modal message: increase font and add space below */
+    #deleteSectionMessage {
+      font-size: calc(1em + 2px);
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
     <header class="header">
@@ -41,11 +115,6 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn new-convo" id="addSectionBtn" title="New section" aria-label="New section">
-                    <span class="icon">+</span>
-                    <span>New Tab</span>
-                </button>
-
                 <div class="feature-header"><br><b>Tools</b></div>
                 <div class="feature-tabs">
                   <a href="mainpage.html" class="feature-tab-container">
@@ -53,24 +122,19 @@
                       <span><i class="fa-solid fa-comment"></i> AI Chat</span>
                     </button>
                   </a>
-                  <div class="feature-tab-container">
+                  <a href="slides.html" class="feature-tab-container">
                     <button type="button" class="btn feature-tab" id="slidesBtn" title="Slides generation" aria-label="Slides generation">
                       <span><i class="fa-brands fa-slideshare"></i> Slides Generation</span>
                     </button>
-                  </div>
-                  <a href="attendance.html" class="feature-tab-container">
+                  </a>
+                  <div class="feature-tab-container">
                     <button type="button" class="btn feature-tab" id="attendanceBtn" title="Attendance record" aria-label="Attendance record">
                       <span><i class="fa-solid fa-user"></i> Attendance Record</span>
                     </button>
-                  </a>
-                  <div class="feature-tab-container">
-                    <button type="button" class="btn feature-tab" id="assessmentBtn" title="Assessment creation" aria-label="Assessment creation">
-                      <span><i class="fa-solid fa-sheet-plastic" style="color:green;"></i> Assessment Creation</span>
-                    </button>
                   </div>
                   <a href="aidetector.html" class="feature-tab-container">
-                    <button type="button" class="btn feature-tab" id="aiDetectorBtn" title="AI detector" aria-label="AI detector">
-                      <span><i class="fa-solid fa-user-secret"></i> AI Detector</span>
+                    <button type="button" class="btn feature-tab" id="aidetectorBtn" title="AI Detector" aria-label="AI Detector">
+                      <span><i class="fa-solid fa-wand-magic-sparkles"></i> AI Detector</span>
                     </button>
                   </a>
                 </div>
@@ -86,12 +150,16 @@
                         </button>
                     </div>
                     <ul class="history-list" id="sectionList"></ul>
+                    <button type="button" class="btn new-convo" id="addSectionBtn" title="New section" aria-label="New section" style="margin-top: 8px;">
+                        <span class="icon">+</span>
+                        <span>New Section</span>
+                    </button>
                 </div>
             </div>
         </aside>
         <main class="main-content">
             <div id="emptyStateContainer" style="display: none;">
-                <button id="createSectionBtnEmpty" class="btn">Create section attendance</button>
+                <button id="createSectionBtnEmpty" class="btn">+ Create section attendance</button>
             </div>
             <div id="attendanceContainer">
                 <h2 id="currentSectionName" class="section-title-header"></h2>
@@ -105,7 +173,7 @@
                 <div class="attendance-sheet">
                     <div class="tabs">
                         <button class="tab-btn active" data-tab="daily">Daily</button>
-                        <button class="tab-btn" data-tab="monthly">Monthly</button>
+                        <button class="tab-btn" data-tab="monthly">History</button>
                     </div>
 
                     <div id="daily" class="tab-content active">
@@ -161,7 +229,22 @@
         </div>
     </div>
 
+    <!-- Delete Section Confirmation Modal -->
+    <div id="deleteSectionModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Confirm Delete</h3>
+            <p id="deleteSectionMessage">Are you sure to delete the tab?</p>
+            <div class="modal-actions">
+                <button id="cancelDeleteSection" class="btn">Cancel</button>
+                <button id="confirmDeleteSection" class="btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="assessment-creation.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="attendance.js"></script>
+    <script src="assessment-creation.js"></script>
+    <script src="lesson-planning.js"></script>
 </body>
 </html>

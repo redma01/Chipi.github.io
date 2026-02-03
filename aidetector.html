@@ -6,7 +6,6 @@
     <title>Chipi - AI Detector</title>
     <link rel="stylesheet" href="mainpage.css">
     <link rel="stylesheet" href="aidetector.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://kit.fontawesome.com/bdc1269674.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -46,44 +45,47 @@
                       <span><i class="fa-solid fa-comment"></i> AI Chat</span>
                     </button>
                   </a>
-                  <div class="feature-tab-container">
+                  <a href="slides.html" class="feature-tab-container">
                     <button type="button" class="btn feature-tab" id="slidesBtn" title="Slides generation" aria-label="Slides generation">
                       <span><i class="fa-brands fa-slideshare"></i> Slides Generation</span>
                     </button>
-                  </div>
+                  </a>
                   <a href="attendance.html" class="feature-tab-container">
                     <button type="button" class="btn feature-tab" id="attendanceBtn" title="Attendance record" aria-label="Attendance record">
                       <span><i class="fa-solid fa-user"></i> Attendance Record</span>
                     </button>
                   </a>
                   <div class="feature-tab-container">
-                    <button type="button" class="btn feature-tab" id="assessmentBtn" title="Assessment creation" aria-label="Assessment creation">
-                      <span><i class="fa-solid fa-sheet-plastic" style="color:green;"></i> Assessment Creation</span>
+                    <button type="button" class="btn feature-tab" id="aidetectorBtn" title="AI Detector" aria-label="AI Detector">
+                      <span><i class="fa-solid fa-wand-magic-sparkles"></i> AI Detector</span>
                     </button>
                   </div>
-                  <a href="aidetector.html" class="feature-tab-container">
-                    <button type="button" class="btn feature-tab" id="aiDetectorBtn" title="AI detector" aria-label="AI detector">
-                      <span><i class="fa-solid fa-user-secret"></i> AI Detector</span>
-                    </button>
-                  </a>
                 </div>
             </div>
         </aside>
         <main class="main-content">
             <div class="detector-container">
                 <div class="text-area-container">
-                    <h2>Input Text</h2>
-                    <textarea id="inputText" placeholder="Paste your text here to check for AI-generated content..."></textarea>
-                    <button id="analyzeBtn" class="btn">Analyze</button>
+                    <h2><i class="fa-solid fa-keyboard"></i> Input Text</h2>
+                    <textarea id="inputText" placeholder="Paste student work, essays, or any text here to check for AI-generated content...&#10;&#10;For best results:&#10;• Provide at least 50-100 words&#10;• Include complete sentences&#10;• Longer texts give more accurate results"></textarea>
+                    <button id="analyzeBtn" class="btn"><i class="fa-solid fa-magnifying-glass"></i> Analyze</button>
                 </div>
                 <div class="text-area-container">
-                    <h2>Analysis</h2>
+                    <h2><i class="fa-solid fa-chart-pie"></i> Analysis Results</h2>
                     <div id="analysisSummary"></div>
-                    <div id="outputText" class="output-text"></div>
+                    <div id="outputText" class="output-text">
+                        <p style="text-align: center; color: #9ca3af; padding: 60px 20px;">
+                            <i class="fa-solid fa-robot" style="font-size: 48px; margin-bottom: 16px; display: block; opacity: 0.3;"></i>
+                            Enter text and click "Analyze" to detect AI-generated content
+                        </p>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
+    <link rel="stylesheet" href="assessment-creation.css">
     <script src="aidetector.js"></script>
+    <script src="assessment-creation.js"></script>
+    <script src="lesson-planning.js"></script>
 </body>
 </html>

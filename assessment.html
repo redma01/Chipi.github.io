@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chipi — Assessment Creator</title>
+  <link rel="stylesheet" href="mainpage.css" />
+  <link rel="stylesheet" href="assessment-creation.css" />
+  <link rel="stylesheet" href="assessment.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
+  <!-- Webkit Icons-->
+  <script src="https://kit.fontawesome.com/bdc1269674.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <span class="logo">CHIPI</span>
+    </div>
+    <div class="header-actions">
+      <div class="profile" id="profile">
+        <button id="profileBtn" class="profile-btn" aria-haspopup="true" aria-expanded="false" title="Account">
+          <img class="avatar" src="CHIPI CHATLOGO.png" alt="Chipi"/>
+        </button>
+        <div class="profile-menu" id="profileMenu" role="menu" aria-hidden="true">
+          <button role="menuitem" class="menu-item" id="profileSettings">Settings</button>
+          <button role="menuitem" class="menu-item" id="profileAbout">About</button>
+          <button role="menuitem" class="menu-item" id="profileContact">Contact</button>
+          <button role="menuitem" class="menu-item" id="profileLogout">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- App layout -->
+  <div class="app">
+    <!-- Sidebar (fixed, always visible) -->
+    <aside class="sidebar expanded" id="sidebar">
+      <div class="sidebar-top">
+        <div class="sidebar-brand">
+          <img class="sidebar-avatar" src="CHIPI DL7.png" alt="Chipi"/>
+          <div class="sidebar-brand-text">
+            <div class="chip-name">CHIPI</div>
+            <div class="chip-sub">AI-integrated digital handbook for teachers</div>
+          </div>
+        </div>
+
+        <button type="button" class="btn new-convo" id="addTabBtn" title="New assessment" aria-label="New assessment">
+          <span class="icon">+</span>
+          <span>New Assessment</span>
+        </button>
+
+        <!-- Feature tabs -->
+        <div class="feature-header"><br><b>Tools</b></div>
+        <div class="feature-tabs">
+          <a href="mainpage.html" class="feature-tab-container">
+            <button type="button" class="btn feature-tab" id="aiChatBtn" title="AI Chat" aria-label="AI Chat">
+              <span><i class="fa-solid fa-comment"></i> AI Chat</span>
+            </button>
+          </a>
+          <a href="slides.html" class="feature-tab-container">
+            <button type="button" class="btn feature-tab" id="slidesBtn" title="Slides generation" aria-label="Slides generation">
+              <span><i class="fa-brands fa-slideshare"></i> Slides Generation</span>
+            </button>
+          </a>
+          <a href="attendance.html" class="feature-tab-container">
+            <button type="button" class="btn feature-tab" id="attendanceBtn" title="Attendance record" aria-label="Attendance record">
+              <span><i class="fa-solid fa-user"></i> Attendance Record</span>
+            </button>
+          </a>
+          <a href="aidetector.html" class="feature-tab-container">
+            <button type="button" class="btn feature-tab" id="aidetectorBtn" title="AI Detector" aria-label="AI Detector">
+              <span><i class="fa-solid fa-wand-magic-sparkles"></i> AI Detector</span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="history-scroll" id="historyScroll">
+          <div class="section-header">
+            <div class="section-title">ASSESSMENTS</div>
+            <button class="btn ghost small section-edit-btn" id="editHistoryBtn" title="Edit assessments" aria-pressed="false" aria-label="Edit assessments">
+              <img src="pencil.png" alt="" class="pencil-icon" />
+              <span class="visually-hidden">Edit</span>
+            </button>
+          </div>
+
+          <ul class="history-list" id="assessmentList"></ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content area -->
+    <main class="chat">
+      <!-- Progress Bar -->
+      <div id="assessmentProgress" class="assessment-progress" style="display: none;">
+        <div class="progress-container">
+          <div class="progress-spinner">
+            <i class="fa-solid fa-spinner"></i>
+          </div>
+          <p>Generating your assessment...</p>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <p class="progress-text"><span id="progressPercent">0</span>%</p>
+        </div>
+      </div>
+
+      <div class="messages" id="messages">
+        <!-- Assessment introduction -->
+        <div class="assessment-intro-container">
+          <div class="assessment-intro">
+            <img src="CHIPI DL8.png" alt="Assessment Creator" style="width: 200px; height: auto; margin-bottom: 20px;" />
+            <h2>Assessment Creation Tool</h2>
+            <p>Create assessments using AI assistance. Upload your lesson content or use the form below to generate questions.</p>
+            
+            <div class="assessment-tabs" id="assessmentTabs">
+              <button class="assessment-tab-btn active" data-tab="upload">
+                <i class="fa-solid fa-file-pdf"></i> Upload Content
+              </button>
+              <button class="assessment-tab-btn" data-tab="form">
+                <i class="fa-solid fa-clipboard-list"></i> Create Form
+              </button>
+            </div>
+
+            <!-- Upload Tab -->
+            <div class="assessment-tab-content active" id="upload-tab">
+              <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                  <i class="fa-solid fa-cloud-arrow-up" style="font-size: 48px; color: var(--accent-color); margin-bottom: 15px;"></i>
+                  <h3>Upload Your Lesson Content</h3>
+                  <p>Drag and drop your PDF file here or click to browse</p>
+                  <input type="file" id="fileInput" accept=".pdf,.txt,.doc,.docx" style="display: none;" />
+                  <button class="btn" id="browseBtn" style="margin-top: 15px;">
+                    <i class="fa-solid fa-folder-open"></i> Choose File
+                  </button>
+                  <p style="font-size: 12px; color: #999; margin-top: 10px;">Supported formats: PDF, TXT, DOC, DOCX</p>
+                </div>
+
+                <div class="file-info" id="fileInfo" style="display: none; margin-top: 20px;">
+                  <div style="padding: 15px; background: #f5f5f5; border-radius: 8px;">
+                    <p><strong>File:</strong> <span id="fileName"></span></p>
+                    <p><strong>Size:</strong> <span id="fileSize"></span></p>
+                    <div style="margin-top: 15px; display: flex; gap: 10px;">
+                      <button class="btn" id="processFileBtn">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Create Assessment
+                      </button>
+                      <button class="btn btn-secondary" id="changeFileBtn">
+                        <i class="fa-solid fa-xmark"></i> Change File
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Tab -->
+            <div class="assessment-tab-content" id="form-tab">
+              <form id="assessmentFormPage" class="assessment-form">
+                <div class="form-group">
+                  <label for="topicInput">Topic/Subject:</label>
+                  <input type="text" id="topicInput" placeholder="e.g., Photosynthesis, World War II" required>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="gradeLevelSelect">Grade Level:</label>
+                    <select id="gradeLevelSelect" required>
+                      <option value="">Select grade level...</option>
+                      <option value="elementary">Elementary (K-5)</option>
+                      <option value="middle">Middle School (6-8)</option>
+                      <option value="high">High School (9-12)</option>
+                      <option value="college">College/University</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="questionTypeSelect">Question Type:</label>
+                    <select id="questionTypeSelect" required>
+                      <option value="">Select type...</option>
+                      <option value="multiple-choice">Multiple Choice</option>
+                      <option value="true-false">True or False</option>
+                      <option value="enumeration">Enumeration</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="questionCountInput">Number of Questions:</label>
+                    <input type="number" id="questionCountInput" min="1" max="50" value="10" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="difficultySelect">Difficulty:</label>
+                    <select id="difficultySelect" required>
+                      <option value="beginner">Beginner</option>
+                      <option value="intermediate" selected>Intermediate</option>
+                      <option value="advanced">Advanced</option>
+                      <option value="mixed">Mixed</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="contextInput">Additional Context:</label>
+                  <textarea id="contextInput" placeholder="Add any specific learning objectives or preferences..." rows="4"></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                  <label><input type="checkbox" id="includeKeyCheckbox"> Include Answer Key</label>
+                  <label><input type="checkbox" id="includeRubricCheckbox"> Include Rubric</label>
+                  <label><input type="checkbox" id="randomizeCheckbox"> Randomize Questions</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 16px;">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Assessment
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <input type="file" id="importFile" accept="application/json" hidden />
+  <div id="toastContainer" aria-live="polite" class="toast-container"></div>
+
+  <script src="assessment.js"></script>
+</body>
+</html>

@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const sectionNameInputModal = document.getElementById('sectionNameInputModal');
     const saveSectionNameBtn = document.getElementById('saveSectionName');
 
+    // Delete section confirmation modal elements
+    const deleteSectionModal = document.getElementById('deleteSectionModal');
+    const deleteSectionMessage = document.getElementById('deleteSectionMessage');
+    const cancelDeleteSection = document.getElementById('cancelDeleteSection');
+    const confirmDeleteSection = document.getElementById('confirmDeleteSection');
+
+    let pendingDelete = { sectionId: null, name: '' };
+
     let appData = JSON.parse(localStorage.getItem('attendanceApp')) || { sections: {}, activeSection: null };
     let datePickerInstance = null;
 
@@ -121,6 +129,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cancelSectionNameBtn.addEventListener('click', closeSectionModal);
 
+    // Wire up delete confirmation modal buttons
+    if (cancelDeleteSection) {
+        cancelDeleteSection.addEventListener('click', () => {
+            pendingDelete = { sectionId: null, name: '' };
+            if (deleteSectionModal) deleteSectionModal.style.display = 'none';
+        });
+    }
+    if (confirmDeleteSection) {
+        confirmDeleteSection.addEventListener('click', () => {
+            const sectionId = pendingDelete.sectionId;
+            if (!sectionId) return;
+            delete appData.sections[sectionId];
+            if (appData.activeSection === sectionId) {
+                appData.activeSection = Object.keys(appData.sections)[0] || null;
+            }
+            saveData();
+            renderSectionTabs();
+            loadSection(appData.activeSection);
+            pendingDelete = { sectionId: null, name: '' };
+            if (deleteSectionModal) deleteSectionModal.style.display = 'none';
+        });
+    }
+    if (deleteSectionModal) {
+        deleteSectionModal.addEventListener('click', (evt) => {
+            if (evt.target === deleteSectionModal) {
+                pendingDelete = { sectionId: null, name: '' };
+                deleteSectionModal.style.display = 'none';
+            }
+        });
+    }
+
     addSectionBtn.addEventListener('click', openCreateSectionModal);
     if (createSectionBtnEmpty) {
         createSectionBtnEmpty.addEventListener('click', openCreateSectionModal);
@@ -129,6 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
     editSectionsBtn.addEventListener('click', () => {
         const isEditing = sectionList.classList.toggle('editing');
         editSectionsBtn.setAttribute('aria-pressed', isEditing);
+        editSectionsBtn.title = isEditing ? 'Done editing' : 'Edit sections';
+        editSectionsBtn.classList.toggle('active', isEditing);
+        renderSectionTabs();
     });
 
     function renderSectionTabs() {
@@ -136,41 +178,112 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const sectionId in appData.sections) {
             const section = appData.sections[sectionId];
             const li = document.createElement('li');
-            li.className = `history-item ${sectionId === appData.activeSection ? 'active' : ''}`;
-            li.dataset.sectionId = sectionId;
+            li.className = 'history-item';
+            if (sectionId === appData.activeSection) {
+                li.classList.add('selected');
+                li.style.background = '#e6f9ff';
+                li.setAttribute('aria-current', 'true');
+            } else {
+                li.style.background = 'transparent';
+                li.removeAttribute('aria-current');
+            }
 
-            li.innerHTML = `
-                <span class="history-item-name">${section.name}</span>
-                <div class="history-item-actions">
-                    <button class="btn ghost small delete-btn" title="Delete"><i class="fa-solid fa-trash"></i></button>
-                </div>
-            `;
+            // Show editing state class when edit mode is active
+            if (sectionList.classList.contains('editing')) {
+                li.classList.add('editing');
+            } else {
+                li.classList.remove('editing');
+            }
 
+            li.setAttribute('aria-label', section.name || 'Section');
+            li.tabIndex = 0;
+
+            // Icon element
+            const iconEl = document.createElement('span');
+            iconEl.className = 'icon';
+            iconEl.textContent = '📋';
+            iconEl.title = section.name || '';
+
+            // Title wrap
+            const titleWrap = document.createElement('div');
+            titleWrap.style.display = 'flex';
+            titleWrap.style.flexDirection = 'column';
+            titleWrap.style.minWidth = '0';
+            titleWrap.style.alignSelf = 'stretch';
+
+            // Title element
+            const titleEl = document.createElement('span');
+            titleEl.className = 'history-title';
+            titleEl.textContent = section.name || 'Untitled';
+            titleEl.title = section.name || '';
+
+            // Subtitle with student count
+            const subEl = document.createElement('div');
+            subEl.className = 'history-sub';
+            subEl.style.color = 'var(--muted-text)';
+            subEl.style.fontSize = '13px';
+            const studentCount = section.students ? Object.keys(section.students).length : 0;
+            subEl.textContent = `${studentCount} student${studentCount !== 1 ? 's' : ''}`;
+
+            // Actions (delete button)
+            const actions = document.createElement('div');
+            actions.className = 'history-actions';
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.setAttribute('title', 'Delete');
+            deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+            deleteBtn.style.display = sectionList.classList.contains('editing') ? 'inline-flex' : 'none';
+            deleteBtn.style.padding = '5px';
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                pendingDelete.sectionId = sectionId;
+                pendingDelete.name = section.name;
+                if (deleteSectionMessage) {
+                    deleteSectionMessage.textContent = `Are you sure to delete the tab of "${section.name}"?`;
+                }
+                if (deleteSectionModal) {
+                    deleteSectionModal.style.display = 'flex';
+                }
+            });
+
+            actions.appendChild(deleteBtn);
+
+            titleWrap.appendChild(titleEl);
+            titleWrap.appendChild(subEl);
+
+            li.appendChild(iconEl);
+            li.appendChild(titleWrap);
+            li.appendChild(actions);
+
+            // Keyboard support: Enter opens, Delete removes (in edit mode)
+            li.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !sectionList.classList.contains('editing')) {
+                    appData.activeSection = sectionId;
+                    saveData();
+                    loadSection(sectionId);
+                    renderSectionTabs();
+                }
+                if (e.key === 'Delete' && sectionList.classList.contains('editing')) {
+                    pendingDelete.sectionId = sectionId;
+                    pendingDelete.name = section.name;
+                    if (deleteSectionMessage) {
+                        deleteSectionMessage.textContent = `Are you sure to delete the tab of "${section.name}"?`;
+                    }
+                    if (deleteSectionModal) {
+                        deleteSectionModal.style.display = 'flex';
+                    }
+                }
+            });
+
+            // Click to load section (disabled while editing)
             li.addEventListener('click', () => {
+                if (sectionList.classList.contains('editing')) return;
                 if (appData.activeSection === sectionId) return;
 
                 appData.activeSection = sectionId;
                 saveData();
                 loadSection(sectionId);
-
-                const currentActive = sectionList.querySelector('.history-item.active');
-                if (currentActive) {
-                    currentActive.classList.remove('active');
-                }
-                li.classList.add('active');
-            });
-
-            li.querySelector('.delete-btn').addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (confirm(`Are you sure you want to delete the section "${section.name}"?`)) {
-                    delete appData.sections[sectionId];
-                    if (appData.activeSection === sectionId) {
-                        appData.activeSection = Object.keys(appData.sections)[0] || null;
-                    }
-                    saveData();
-                    renderSectionTabs();
-                    loadSection(appData.activeSection);
-                }
+                renderSectionTabs();
             });
 
             sectionList.appendChild(li);

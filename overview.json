@@ -1,0 +1,870 @@
+{
+  "rootFolder": "c:\\Users\\RedMa\\Documents\\CHIPI DEVELOPMENT backup",
+  "analyzedAt": "2026-02-03T00:45:41.718Z",
+  "rootStructure": [
+    {
+      "name": ".gitignore",
+      "type": "file",
+      "size": 216,
+      "lines": 20
+    },
+    {
+      "name": "aidetector.css",
+      "type": "file",
+      "size": 10603,
+      "lines": 595
+    },
+    {
+      "name": "aidetector.html",
+      "type": "file",
+      "size": 5002,
+      "lines": 92
+    },
+    {
+      "name": "aidetector.js",
+      "type": "file",
+      "size": 37592,
+      "lines": 888
+    },
+    {
+      "name": "assessment.css",
+      "type": "file",
+      "size": 11009,
+      "lines": 645
+    },
+    {
+      "name": "assessment.html",
+      "type": "file",
+      "size": 11502,
+      "lines": 239
+    },
+    {
+      "name": "assessment.js",
+      "type": "file",
+      "size": 28203,
+      "lines": 870
+    },
+    {
+      "name": "attendance.css",
+      "type": "file",
+      "size": 10534,
+      "lines": 536
+    },
+    {
+      "name": "attendance.html",
+      "type": "file",
+      "size": 11623,
+      "lines": 251
+    },
+    {
+      "name": "attendance.js",
+      "type": "file",
+      "size": 22535,
+      "lines": 545
+    },
+    {
+      "name": "c%3A",
+      "type": "dir"
+    },
+    {
+      "name": "CHIPI CHATLOGO.png",
+      "type": "file",
+      "size": 522950,
+      "lines": 2137
+    },
+    {
+      "name": "CHIPI decal login.png",
+      "type": "file",
+      "size": 974500,
+      "lines": 4316
+    },
+    {
+      "name": "CHIPI DL 1.png",
+      "type": "file",
+      "size": 967902,
+      "lines": 4797
+    },
+    {
+      "name": "CHIPI DL5.png",
+      "type": "file",
+      "size": 1074427,
+      "lines": 5303
+    },
+    {
+      "name": "CHIPI DL7.png",
+      "type": "file",
+      "size": 478809,
+      "lines": 1930
+    },
+    {
+      "name": "CHIPI DL8.png",
+      "type": "file",
+      "size": 1027897,
+      "lines": 5076
+    },
+    {
+      "name": "CHIPI DL9.png",
+      "type": "file",
+      "size": 340657,
+      "lines": 1376
+    },
+    {
+      "name": "decals",
+      "type": "dir"
+    },
+    {
+      "name": "FEATURE_COMPLETION_REPORT.md",
+      "type": "file",
+      "size": 10018,
+      "lines": 333
+    },
+    {
+      "name": "IMPLEMENTATION_NOTES.md",
+      "type": "file",
+      "size": 8735,
+      "lines": 243
+    },
+    {
+      "name": "IMPLEMENTATION_SUMMARY.md",
+      "type": "file",
+      "size": 10405,
+      "lines": 326
+    },
+    {
+      "name": "index.css",
+      "type": "file",
+      "size": 3267,
+      "lines": 163
+    },
+    {
+      "name": "index.html",
+      "type": "file",
+      "size": 1979,
+      "lines": 56
+    },
+    {
+      "name": "index.js",
+      "type": "file",
+      "size": 1181,
+      "lines": 44
+    },
+    {
+      "name": "lesson-planning-deped.js",
+      "type": "file",
+      "size": 18155,
+      "lines": 503
+    },
+    {
+      "name": "lesson-planning.css",
+      "type": "file",
+      "size": 11031,
+      "lines": 616
+    },
+    {
+      "name": "lesson-planning.html",
+      "type": "file",
+      "size": 15251,
+      "lines": 314
+    },
+    {
+      "name": "lesson-planning.js",
+      "type": "file",
+      "size": 14709,
+      "lines": 427
+    },
+    {
+      "name": "mainpage.css",
+      "type": "file",
+      "size": 16111,
+      "lines": 962
+    },
+    {
+      "name": "mainpage.html",
+      "type": "file",
+      "size": 6974,
+      "lines": 159
+    },
+    {
+      "name": "mainpage.js",
+      "type": "file",
+      "size": 36458,
+      "lines": 1043
+    },
+    {
+      "name": "node_modules",
+      "type": "dir"
+    },
+    {
+      "name": "package-lock.json",
+      "type": "file",
+      "size": 35610,
+      "lines": 979
+    },
+    {
+      "name": "package.json",
+      "type": "file",
+      "size": 325,
+      "lines": 16
+    },
+    {
+      "name": "PAPERPLANE.png",
+      "type": "file",
+      "size": 284,
+      "lines": 7
+    },
+    {
+      "name": "PENCIL.png",
+      "type": "file",
+      "size": 268,
+      "lines": 4
+    },
+    {
+      "name": "QUICK_REFERENCE.md",
+      "type": "file",
+      "size": 6552,
+      "lines": 227
+    },
+    {
+      "name": "slides.css",
+      "type": "file",
+      "size": 16638,
+      "lines": 893
+    },
+    {
+      "name": "slides.html",
+      "type": "file",
+      "size": 11439,
+      "lines": 237
+    },
+    {
+      "name": "slides.js",
+      "type": "file",
+      "size": 54394,
+      "lines": 1311
+    },
+    {
+      "name": "STYLING_UPDATE_APPLIED.md",
+      "type": "file",
+      "size": 4642,
+      "lines": 127
+    },
+    {
+      "name": "UPDATES.md",
+      "type": "file",
+      "size": 8381,
+      "lines": 211
+    },
+    {
+      "name": "USERLOGO.png",
+      "type": "file",
+      "size": 529573,
+      "lines": 2056
+    }
+  ],
+  "rootFileSnippets": {
+    "aidetector.css": [
+      "/* ===== ADVANCED AI DETECTOR STYLES ===== */",
+      "/* Professional grade AI detection UI inspired by GPTZero, ZeroGPT */",
+      "",
+      ".main-content {",
+      "background: linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%);",
+      "min-height: calc(100vh - 64px);",
+      "}",
+      "",
+      ".detector-container {",
+      "display: flex;"
+    ],
+    "aidetector.html": [
+      "<!DOCTYPE html>",
+      "<html lang=\"en\">",
+      "<head>",
+      "<meta charset=\"UTF-8\">",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "<title>Chipi - AI Detector</title>",
+      "<link rel=\"stylesheet\" href=\"mainpage.css\">",
+      "<link rel=\"stylesheet\" href=\"aidetector.css\">",
+      "<script src=\"https://kit.fontawesome.com/bdc1269674.js\" crossorigin=\"anonymous\"></script>",
+      "</head>"
+    ],
+    "aidetector.js": [
+      "// ===== ADVANCED AI DETECTOR - Professional Grade =====",
+      "// Inspired by GPTZero, ZeroGPT, Quillbot AI Detection",
+      "",
+      "// API Configuration",
+      "const OPENROUTER_MODEL = \"openai/gpt-4o-mini\";",
+      "const OPENROUTER_URL = \"https://openrouter.ai/api/v1/chat/completions\";",
+      "",
+      "function getUserAPIKey() {",
+      "const accessKey = sessionStorage.getItem(\"chipi_access_key\");",
+      "const userKey = localStorage.getItem(`chipi_openrouter_api_key_${accessKey}`);"
+    ],
+    "assessment.css": [
+      "/* ===== ASSESSMENT PAGE SPECIFIC STYLES ===== */",
+      "",
+      "/* Messages Area - Ensure proper height and scrolling */",
+      "#messages {",
+      "flex: 1;",
+      "overflow-y: auto;",
+      "display: flex;",
+      "flex-direction: column;",
+      "width: 100%;",
+      "height: 100%;"
+    ],
+    "assessment.html": [
+      "<!DOCTYPE html>",
+      "<html lang=\"en\">",
+      "<head>",
+      "<meta charset=\"UTF-8\" />",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>",
+      "<title>Chipi — Assessment Creator</title>",
+      "<link rel=\"stylesheet\" href=\"mainpage.css\" />",
+      "<link rel=\"stylesheet\" href=\"assessment-creation.css\" />",
+      "<link rel=\"stylesheet\" href=\"assessment.css\" />",
+      ""
+    ],
+    "assessment.js": [
+      "// Assessment Page Handler",
+      "const ASSESSMENT_MODEL = 'openai/gpt-4o-mini';",
+      "let selectedFile = null;",
+      "let assessmentHistory = [];",
+      "let currentAssessment = null;",
+      "let editMode = false; // For edit/delete functionality",
+      "",
+      "// Initialize assessment page",
+      "function initAssessmentPage() {",
+      "loadAssessmentHistory();"
+    ],
+    "attendance.css": [
+      "/* attendance.css */",
+      "",
+      ":root {",
+      "--primary-orange: #ff9800;",
+      "--primary-orange-dark: #f57c00;",
+      "--primary-orange-light: #ffe0b2;",
+      "--text-color-dark: #212529;",
+      "--text-color-light: #ffffff;",
+      "--bg-light: #f8f9fa;",
+      "--bg-white: #ffffff;"
+    ],
+    "attendance.html": [
+      "<!DOCTYPE html>",
+      "<html lang=\"en\">",
+      "<head>",
+      "<meta charset=\"UTF-8\">",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "<title>Chipi - Attendance</title>",
+      "<link rel=\"stylesheet\" href=\"mainpage.css\">",
+      "<link rel=\"stylesheet\" href=\"attendance.css\">",
+      "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css\">",
+      ""
+    ],
+    "attendance.js": [
+      "document.addEventListener('DOMContentLoaded', () => {",
+      "const addStudentBtn = document.getElementById('addStudentBtn');",
+      "const studentNameInput = document.getElementById('studentNameInput');",
+      "const studentList = document.getElementById('studentList');",
+      "const attendanceDate = document.getElementById('attendanceDate');",
+      "const monthPicker = document.getElementById('monthPicker');",
+      "const monthlyAbsenceView = document.getElementById('monthlyAbsenceView');",
+      "const tabs = document.querySelectorAll('.tab-btn');",
+      "const tabContents = document.querySelectorAll('.tab-content');",
+      "const editStudentsBtn = document.getElementById('editStudentsBtn');"
+    ],
+    "CHIPI CHATLOGO.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\u0000\u0000\tpHYs\u0000\u0000\u000e�\u0000\u0000\u000e�\u0001�+\u000e\u001b\u0000\u0000\u0004�iTXtXML:com.adobe.xmp\u0000\u0000\u0000\u0000\u0000<?xpacket begin='﻿' id='W5M0MpCehiHzreSzNTczkc9d'?>",
+      "<x:xmpmeta xmlns:x='adobe:ns:meta/'>",
+      "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>",
+      "",
+      "<rdf:Description rdf:about=''",
+      "xmlns:Attrib='http://ns.attribution.com/ads/1.0/'>",
+      "<Attrib:Ads>",
+      "<rdf:Seq>"
+    ],
+    "CHIPI decal login.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0002\u0000\u0000\u0000���\u0000\u00004�caBX\u0000\u00004�jumb\u0000\u0000\u0000\u001ejumdc2pa\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa\u0000\u0000\u00004�jumb\u0000\u0000\u0000Gjumdc2ma\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003urn:uuid:049954a8-3e3c-4453-bb77-f85bfd0ad8e7\u0000\u0000\u0000\u0005�jumb\u0000\u0000\u0000)jumdc2as\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa.assertions\u0000\u0000\u0000\u0004jumb\u0000\u0000\u0000Ajumdcbor\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0013c2pa.hash.boxes\u0000\u0000\u0000\u0000\u0018c2sh��Ż�\u0003���g;��Q�\u0019\u0000\u0000\u00046cbor�calgfsha256eboxes��enames�dPNGhdhashX LKj;�1J�a8��1M�\u0002.`\t`�h�,��1�- ڶcpad@�enames�dIHDRdhashX DH8U�r\f_�#�-�ݦT.�h�F7�\u0013�Q�A{�/Kcpad@�enames�dC2PAdhashA\u0000cpad@�enames�dIDATdhashX q���,�~�\u000eT�\u0003;k����]�|\u0003\u0003��m�ǽ���cpad@�enames�dIDATdhashX 7��\u0019ֈ�\u0004ue��6����p",
+      "� ~Q�0\u0002.\u001cW\u0001\u0018�cpad@�enames�dIDATdhashX @\u001diKW�A\u0014Kb�?��Qׅ�v\u001b��U���cN>\u0001�\u0018cpad@�enames�dIDATdhashX ���m�^]|�\u0010�N\u0011f�B�g����\u0019{40�Z\u0019�\"cpad@�enames�dIDATdhashX ���]\r7��-8:Wm�$\u0006���\\��O�\u001e\u0018\u0003�\u0007�3wcpad@�enames�dIDATdhashX ^��&����|��\u0000�窧O�|��?��5\u0006�J�.��cpad@�enames�dIDATdhashX $l��cB�ER�f��s]�Ѯ\u001d�>��f�}R �Q�cpad@�enames�dIDATdhashX �>9���<\u0011\t��sF�\u000f+��I\u0010~g�N�\u0013:~�j�cpad@�enames�dIDATdhashX �t��Y��횐ꄝ�kR��\u0002�;Ҙ5!U��z\u00161cpad@�enames�dIDATdhashX {�'T���i�2����6Q\u00154FV�_+��hH!S?�cpad@�enames�dIDATdhashX ?A��G]D��ҫt��P���9\u0012��\b\u000b��i&ǜ\u001ecpad@�enames�dIDATdhashX p\u0010���\u0001��a������s����}\u0013�\u0014�\u0003s{:5�cpad@�enames�dIDATdhashX �\u0010g�c���M�\".{w�6�X��\u0013z�5S,{#\u0001\r\u001bcpad@�enames�dIDATdhashX ��h�H�/m���z��\t��#$�\u0010\u0011�\u0007�܀f�s�9cpad@�enames�dIDATdhashX � \u0013g��|�� K4<�s\u0017�e�5��4����Zӻ+Zcpad@�enames�dIENDdhashX ��r�\u0000Pgk�\u0016\u000bo�\u000b9��\u0013��\u000ei�᭄�#�cpad@\u0000\u0000\u0001\u0005jumb\u0000\u0000\u0000>jumdcbor\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0013c2pa.actions\u0000\u0000\u0000\u0000\u0018c2sh��Ż�\u0003���g;��Q�\u0019\u0000\u0000\u0000�cbor�gactions��factionlc2pa.createdmsoftwareAgentuAzure OpenAI ImageGendwhent2025-12-23T09:23:11ZqdigitalSourceTypexFhttp://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia\u0000\u0000\u0002qjumb\u0000\u0000\u0000$jumdc2cl\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa.claim\u0000\u0000\u0000\u0002Ecbor�calgfsha256idc:formatiimage/pngisignaturexLself#jumbf=c2pa/urn:uuid:049954a8-3e3c-4453-bb77-f85bfd0ad8e7/c2pa.signaturejinstanceIDc1.0oclaim_generatorx\u001cMicrosoft_Responsible_AI/1.0tclaim_generator_info��dnamex)Microsoft Responsible AI Image Provenancegversionc1.0jassertions��calgfsha256curlx]self#jumbf=c2pa/urn:uuid:049954a8-3e3c-4453-bb77-f85bfd0ad8e7/c2pa.assertions/c2pa.hash.boxesdhashX \t�6��\u000e�I\u0019\u0003\u000f�,1�\"��\u001a \u001f_L\b\u000e�V�\fVQ�calgfsha256curlxZself#jumbf=c2pa/urn:uuid:049954a8-3e3c-4453-bb77-f85bfd0ad8e7/c2pa.assertions/c2pa.actionsdhashX �!��S\u0007a!3����>\u0005k�=IK�#\u0006�\b��u�\u0006��\u0000\u0000,\u000fjumb\u0000\u0000\u0000(jumdc2cs\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa.signature\u0000\u0000\u0000+�cbor҄D�\u00018$�gx5chain�Y\u0006)0�\u0006%0�\u0004\r�\u0003\u0002\u0001\u0002\u0002\u00133\u0000\u0000\u0000~$,ٞ���\u0000\u0000\u0000\u0000\u0000~0\r\u0006\t*�H��\r\u0001\u0001\f\u0005\u00000V1\u000b0\t\u0006\u0003U\u0004\u0006\u0013\u0002US1\u001e0\u001c\u0006\u0003U\u0004",
+      "\u0013\u0015Microsoft Corporation1'0%\u0006\u0003U\u0004\u0003\u0013\u001eMicrosoft SCD Claimants RSA CA0\u001e\u0017\r251001174401Z\u0017\r261001174401Z0t1\u000b0\t\u0006\u0003U\u0004\u0006\u0013\u0002US1\u00130\u0011\u0006\u0003U\u0004\b\u0013",
+      "Washington1\u00100\u000e\u0006\u0003U\u0004\u0007\u0013\u0007Redmond1\u001e0\u001c\u0006\u0003U\u0004",
+      "\u0013\u0015Microsoft Corporation1\u001e0\u001c\u0006\u0003U\u0004\u0003\u0013\u0015Microsoft Corporation0�\u0001�0\r\u0006\t*�H��\r\u0001\u0001\u0001\u0005\u0000\u0003�\u0001�\u00000�\u0001�\u0002�\u0001�\u0000�\u0011�\u0013�{���?�M���\u0013 p��W���\u0017\b\u0004!b]\u0005��RB��B��\u0003��8u��X�Ԡ\u0015\u0014y�t���*��<�,�d*�\u0010��_�B�k\u0014��5m12w\u001e�E \u0014\u000e>+bI\u0005���N�\r�+���&<ۿ�ã\u000b��\u0006\u0012iն�<",
+      "�@�\u001dA�[[\"�^�(��{߼\u0013C�c��\u0007��:p�һ\u0002���\b.�W)�Y&U\u0004_����|\u0015�xȳ\u0006�>9�^��BwƓ�q2??^�B�<�5>I`�F\u0000�6���)W\b�W\u001fG\t�d�\u001a\u0015��W\u0011{r �֟:\u001e8��\u001d �ԩ�\u0010n�\u0005'ZxwH~\b\u0017��W�\u0005\r|C[�A�pL���V\u0006\u001dW�>�\u0003\u000f'\u000e!���\u001c�z�\u0015\u0002���T]��%��zzd>MΔ\b\u001c.�̠em��T��M�\\�1.Wx-^\u0004� \u0013\u0006���%%�\u000f�|�9v�PU��\u0010��!�R_���\u001b�&um\u0002\u0003\u0001\u0000\u0001��\u0001L0�\u0001H0\u0019\u0006\u0003U\u001d%\u0001\u0001�\u0004\u000f0\r\u0006\u000b+\u0006\u0001\u0004\u0001�7L;\u0001\t0\u000e\u0006\u0003U\u001d\u000f\u0001\u0001�\u0004\u0004\u0003\u0002\u0000�0\u001d\u0006\u0003U\u001d\u000e\u0004\u0016\u0004\u0014z�iEr\u0005^���07S-eӰ���0\u001f\u0006\u0003U\u001d#\u0004\u00180\u0016�\u0014�����u��\r�i�|L�`VٴD0_\u0006\u0003U\u001d\u001f\u0004X0V0T�R�P�Nhttp://www.microsoft.com/pkiops/crl/Microsoft%20SCD%20Claimants%20RSA%20CA.crl0l\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0001\u0001\u0004`0^0\\\u0006\b+\u0006\u0001\u0005\u0005\u00070\u0002�Phttp://www.microsoft.com/pkiops/certs/Microsoft%20SCD%20Claimants%20RSA%20CA.crt0\f\u0006\u0003U\u001d\u0013\u0001\u0001�\u0004\u00020\u00000\r\u0006\t*�H��\r\u0001\u0001\f\u0005\u0000\u0003�\u0002\u0001\u0000�#}�;�4wj<����*\t�L�x����* \u001f$Ҁ",
+      "\u0017\u000b��<\u001d\bЦ�(��e?T��%\u001f�B\u0000��#�{B��b#+n{����V=�\u0016�����Jjuz=f�Y��k��&��y�3�^��r��\u000eu.j �&Y�7�!�}E*\u0007@\u001d�g\u0004�\u0019�Yp����ɫ�s\u001f�LW�ܼ�\\:0��\u0019ۼ�L�ك�@\u000b��J���F�L��/e(\u000eo��p��O\u001f�\u0012\u001b�ӿ��͵Ot��(�\u001e���5�W�\f�JW{a'\u000f$\u0015\r�\u0018�\u0018�6�{\u0017����{�\u0018/�r�\u000f��x��׸��'Ӿ\u0010愌���ҦlJl\u001agwwʃ���:17\u0012�!�O�#Lg�\u0003X&�\u000f8���(\u0006,󾴪�^h'\u0010M5]��\u001bϡ��\u0011��I �\u0010\u0018h\u001aW^W[!1�c\u001ef�l��K�2��U��y\u0019��X���\u0019|U\u0006Q��P��\u0007\u0002ft�\u000bF\u001d\u0014?\f\u0012��峨|s�\u0006��uQ�L3J�rxܬV>D�\u0011l�\u0006�n\u0001|[�����}S��i��\u0000��\u000b��2�����Y\u0013!�ҵuS8��\u0000\u001d",
+      "�D\u0003��`\f�\u001d�Q2\u0019�\u0004\u000bVLl!A\u0003�'�\u0016=�&E\u0019^��X�\u0006\f���\\h�|�Y\u0006�0�\u0006�0�\u0004��\u0003\u0002\u0001\u0002\u0002\u00133\u0000\u0000\u0000\u0004���z"
+    ],
+    "CHIPI DL 1.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\u0007��caBX\u0000\u0007��jumb\u0000\u0000\u0000\u001ejumdc2pa\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa\u0000\u0000\u0007��jumb\u0000\u0000\u0000Gjumdc2ma\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003urn:uuid:007b21a3-0cd1-4361-b726-f8fb7197792f\u0000\u0000\u0007��jumb\u0000\u0000\u0000)jumdc2as\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa.assertions\u0000\u0000\u0007�Gjumb\u0000\u0000\u00002jumd@�\f2��H��\u000b*��Ci\u0003c2pa.thumbnail.claim.png\u0000\u0000\u0000\u0000\u0013bfdb\u0000image/png\u0000\u0000\u0007��bidb�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\u0007��IDATx\u0001��\u0003�$Y����w��̧rKc�m۶m۶m۶mi���J��23\"��v�jz��;kկr�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�9ۼ($�m��$q�UW]u�UW���r�UW]u�UW�w\u0011����!���ꪫ��ꪫ�3Q�ꪫ��ꪫ�;�+\f��d��\u0010�K\\a@\\a��ꪫ����\fT��ꪫ����Ul\u0003\b`�^k�Zi\u001cG$!I�p��h�\u0005\u0000\u00024\u0001K`\t��\u0017@\u000f\u0002ĳ\u0005�\u00006�\u0000\u00034�\b8\u0002%k�\u0012�H�6�z\u000e�\u0018�32�:�9����ꪫ���?\u000b����ꪫ��꿓y6�\u0013  �\u0000\u0004�g3`�}��\u0012�&�H�\u0001�\u0017�</q��ꪫ��ꪫ��!��ꪫ����\u0014�\u00018X��tt��5�d�d.�\u001e�\u0019�ݭ��C��Q�8�2��g,\u0016\u000b\u001f,\u0007.�\u001dhw�Pw�y�Ο������������X�;s*�o/ʢ�ʬ+E!$��י^5g� JQX0\u0019�`�3\u0012",
+      "D\u0004\u0011!\u0001`����f2�֚�MF!#\u0014%)����<S�����=㞳�?�)cW+]W�L�a`\u001aG��6�������[�\u0019ۛ3�l.|bg��͹k-Ԯ����;>ubǳyǱc\u001b�!:�N\u00020��S��ꪫ��ꪫ�ը\\u�UW]u�U�Y\u0004\b\u0010P�",
+      "\u0004 �\u0002��&�\u0001\u0005\u00100\u0001#P�90\u00076�-`\u0006tSf}�S�,O|��5�k�ZͱU�,\u000b�q\"\u001b\u0005�\u0000\u0004\u0018ld#�\u0000(@\u0012\u0018l���\u0006�`c\u0000\u0004\bd\u0014F2�@H�e�Y��y�\u0006\u001a���\u0000\u0002X\u0003\u00030\u0000#0\u0000k`\r���\u0004V�\u0012\u0018�\u0001\u0018�\u0004\u0012H ��UW]u�UW]�oA媫��ꪫ���$�\u0000=0\u0003",
+      "P�9p\u001a8\u0003l\u0000\u0015(�",
+      "X\u00013�\u0018p\f8\u0003\\\u0003�\u0000s̢e�̬Ӕݸ��i���2\u0016`�S\"Q@\u0004\u0000`��!�1 a$\u0000H��`#l\f�\u0006\u0004\u0012`K62��Q��뾖��n\tL�\u0004\b�\u0002\u001c\u0000��!p\u0004\u001c\u0001{�\u001e�\u0002&�\u0001��%`\u001f8\u0002��\u0004L�\u0004�@\u0002檫��ꪫ���B\\u�UW]u�U��6�\u0000..��nM��\u000e�`��\f���}�B�=8��w\u000f�}�.u��\u000e��0�0N�?X�{�;ߝ�p�OS�(]�uc���n�E�E����Yw�����\"q5�\u0014kEY�t?��\u0019�igo�����ѩ�z�^\u000fm�\u001e�<S%Mm-�4�n\u001a[5�A`\u0014�d�\u0000� �� l\u0019\u00046\u0012\u0012؀\u0001��\u0001l\u0019�\u0000�2�d�-\u0003��ա��Vݼ_�R�R��L�i�٦2������`6�f]Yκz4��`�����\u001ai�Ԁ�4{��\u000eV���h�Z��4�cK������|�M[�Y�l-�S'6��9>nm���b�67�m{ss��ԩq{s#\u0017�>7�����ǎm�b13`I檫��ꪫ��r�UW]u�UW=7\u0001\u0002\u0002(@\u0005z`\u000e,�M`\u0013�\u0002��m�\u0003",
+      "0\u0007�\u0001;��fS��A[�\u0017.�����\u001c$RR��E�XHTB���f4�"
+    ],
+    "CHIPI DL5.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\b�tcaBX\u0000\b�tjumb\u0000\u0000\u0000\u001ejumdc2pa\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa\u0000\u0000\b�Njumb\u0000\u0000\u0000Gjumdc2ma\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003urn:uuid:32b9f803-1776-4514-ab7f-6b3976a857f5\u0000\u0000\b�pjumb\u0000\u0000\u0000)jumdc2as\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa.assertions\u0000\u0000\b��jumb\u0000\u0000\u00002jumd@�\f2��H��\u000b*��Ci\u0003c2pa.thumbnail.claim.png\u0000\u0000\u0000\u0000\u0013bfdb\u0000image/png\u0000\u0000\b�tbidb�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\b�3IDATx\u0001��\u0003�$Y����w��̧rKc�m۶m۶m۶mi���J��23\"��v�jz��;kկr�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ�����Ǿ\u0003��h\u001b�\u001e�I�&lA",
+      ",���\u0001�p�\u0011\u0000H`�F�\u0004���-0\u0000 ��\t��\u0006\u0001�\b�@\u0018\u0004\b�� �Q\u0010�K�\bY\u0018ɀ\r\u0018��)��UW]u�UW]��F媫��ꪫ���F�\u0000\u0001\u0001\b�@\u0007t@\u0007t@��\u0004\u0014�\u0002\u0001\u0004\u0010<��\t��\u0004\u0004��T�\u0000\u0002H�\u0001\t\u0018H \u0001\u0003\t4 �\u0006$Ѐ\u0004\f$Ѐ\u0011�\u0000s�UW]u�UW�{Q�ꪫ��ꪫ��\u0011\u0010@\u0000\u0001\u0014`\u0006,�\r`\u000é\u0019�V�\u001e�\u000e(@�",
+      "\u0003\t��5�\u0000\u0001�\u0015�",
+      "t@\u0005F`\u0002&�\u0001\rh@\u0003\u001a0\u0002#0\u0002\u00130\u0001\u0013�@\u0003\u0006���ꪫ��ꪫ�# ��ꪫ����:7�O\u0000�\u001dL.$\u0015O��*n\u0015\u001c@\u0001�P�(��\"(!B\u0002\u0004��\u0010\b\u0004\tN 匰#�\u0002E \u0005h\u000e,�\u001b���9bfs�] {�\u001e�",
+      "*\u0000`#\u0012X��@\u0003\u0004\u000e\u0010�@�+v\u0007Y1#0\u0001\u0013�!5D\u0013jH\r\u0018�\u00114\u0002��I0a7�\u0004\u0006�\u0012ieg����\\a��Da�A\t2�����\u0004%��\u0012�H�\t��1ȠFQc{Ѹ�<��ꪫ������\\u�UW]u�U��*�\u00013`\u0003�\u00046�M`\u000b�\u00033`\u000e��\f�\u0000",
+      "P�\u0002T�\u0000\u0001\u0004 @\\!�0�\f,!*���� �P\u0005c\u0003X@E\u0014��\u0002\b\u0000$����\u001b(\u0001@\u0002\u0004\u0002\t \b"
+    ],
+    "CHIPI DL7.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\u0000\u0000\tpHYs\u0000\u0000\u000e�\u0000\u0000\u000e�\u0001�+\u000e\u001b\u0000\u0000\u0004�iTXtXML:com.adobe.xmp\u0000\u0000\u0000\u0000\u0000<?xpacket begin='﻿' id='W5M0MpCehiHzreSzNTczkc9d'?>",
+      "<x:xmpmeta xmlns:x='adobe:ns:meta/'>",
+      "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>",
+      "",
+      "<rdf:Description rdf:about=''",
+      "xmlns:Attrib='http://ns.attribution.com/ads/1.0/'>",
+      "<Attrib:Ads>",
+      "<rdf:Seq>"
+    ],
+    "CHIPI DL8.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\b2BcaBX\u0000\b2Bjumb\u0000\u0000\u0000\u001ejumdc2pa\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa\u0000\u0000\b2\u001cjumb\u0000\u0000\u0000Gjumdc2ma\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003urn:uuid:12c84c7c-caff-46b5-9172-5d00d83b4ae4\u0000\u0000\b\u0004>jumb\u0000\u0000\u0000)jumdc2as\u0000\u0011\u0000\u0010�\u0000\u0000�\u00008�q\u0003c2pa.assertions\u0000\u0000\b\u0002�jumb\u0000\u0000\u00002jumd@�\f2��H��\u000b*��Ci\u0003c2pa.thumbnail.claim.png\u0000\u0000\u0000\u0000\u0013bfdb\u0000image/png\u0000\u0000\b\u0002Bbidb�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\b\u0002\u0001IDATx\u0001��\u0003�$Y����w��̧rKc�m۶m۶m۶mi���J��23\"��v�jz��;kկr�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�UW]u�UW]�\u001d����ꪫ��ꪫ��ꪫ����:*W]u�UW]u�UW]u�UW]u��uT��ꪫ��ꪫ��ꪫ�����\\u�UW]u�UW]u�UW]u�U��Q�ꪫ��ꪫ��ꪫ��ꪫ���r�UW]u�UW]u�UW]u�UW�_G媫��ꪫ��ꪫ��ꪫ�����UW]u�UW]u�U�)l�\u0000�9�.�\u0010\u0010P�\u0000\u0015 �\u0000\u0002�\u0006���\u0000\u001d6@ɐ�j+ц�֙�D�ư^K���5�\u0016,",
+      "0c\u0018\u0006�4�\u0000r.`N���\u000b0�\r\u0011lt�#͔In�\u001b�$:S�MO�ؚp��q\u00026\u0001\u0003\u0013�@\u0003&�\u0001+�\u0006�\u0018�/\u0003H⪫����RT��ꪫ��ꪫ���$���\u0010{�]V\\\u0012{���\u0018���.�Wr\u001bb\u0018ֱ>Z�0.���ю�X�G-�b\\f\f�*�)c�uLcF�&M�\u0002��qd\u001c\u0007њ�\tcJE(z�L�F� 5�\u0003;]���B�S���\u0019�=MI���sFd�Ͳv��k�n�{���ܘ�bk���e{+�67|l{�\u001b�\u001b�|3W[;~�H�\r��&^�\u0001\u0003\u0002�UW]u�U��\u0010W]u�UW]u�UW����_�\u0005��۫�g�ֽ{�n�گG{CY���`=��8�6\u000eu\\�n�\u001c�Cm�.�:\u000e-2[\u001d�V�cd��Vl\"!�pfȩ\u0004Y\u0012F`�\u0010B�\u0018cd\u0011`\u001ca���P��\u0010)�\u0001)dA\u00124\"Z-��\u0018Þ��T�����.���S?��٬o��������N;���Ɖ�\u001eq��\u0014�u~��~lJ2W]u�UW�w@\\u�UW]u�UW]�\u001f�?;^��o+����\u001f��#�\u0010��M�.�}s�iU�N0��E�(̜t�k�:g�@���.F\u0005gDD�laR(d\u0014H\u0002� \u0019\u0002\u000b\u0005\u0000�l�y&+C����Dj\"��e7�d{�4:�&4�\u0018��\u0010�fT0�\u001e*�J�T�:��e\u001c0��\u0018�ئ���q�Ti�����o�ض��1W]u�UW�W@\\u�UW]u�UW]u�m~�W~E��sO\\�M���mi�/�t��^�\rB��Z�Sﹳ<��O�K{��`�������d���:d\u0016;",
+      "�\u0019.s�\fk�r��A\u001d�\u0019d��\u0010\u001d�9f��c�1=�\":�",
+      "\u0016R\u0001",
+      "\u0010�\u0002\u0004r�\b\u0011H�\u0002$�&\u0010� �x\u0000\u0019\u0004�\u0011�݀$�!��Q4�D0�9���\u0003ҀXSb�[�\f�\u0011i\u0002�d��֤F\u0014+\"ׄG�1�X�c_�Ea\\t[mssֶ66sgs;���7<��|����5�6����<V����l�K�����\"�{��ٳy��g��\u001f���",
+      "K⪫����\u000bq�UW]u�UW]uճ��������ߕ����.�]�����\u0017���K��r�������l\u001c�\u0017̠�TkUD\rԧU JBgG\u000f�d΀\u00050\u0003͐\u0017X=R��!;�"
+    ],
+    "CHIPI DL9.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\u0000\u0000\tpHYs\u0000\u0000\u000e�\u0000\u0000\u000e�\u0001�+\u000e\u001b\u0000\u0000\u0004�iTXtXML:com.adobe.xmp\u0000\u0000\u0000\u0000\u0000<?xpacket begin='﻿' id='W5M0MpCehiHzreSzNTczkc9d'?>",
+      "<x:xmpmeta xmlns:x='adobe:ns:meta/'>",
+      "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>",
+      "",
+      "<rdf:Description rdf:about=''",
+      "xmlns:Attrib='http://ns.attribution.com/ads/1.0/'>",
+      "<Attrib:Ads>",
+      "<rdf:Seq>"
+    ],
+    "FEATURE_COMPLETION_REPORT.md": [
+      "# CHIPI Platform - Complete Feature Replacement Summary",
+      "",
+      "## Mission Accomplished ✅",
+      "",
+      "Successfully removed AI Detector from sidebar navigation across all pages and replaced it with **Assessment Creation** and **Lesson Planning** features.",
+      "",
+      "## What Was Done",
+      "",
+      "### 1. **Sidebar Navigation Updates** (4 HTML files)",
+      "- ❌ Removed: AI Detector links (fa-solid fa-user-secret)"
+    ],
+    "IMPLEMENTATION_NOTES.md": [
+      "# CHIPI Platform - Assessment Creation & Lesson Planning Implementation",
+      "",
+      "## Overview",
+      "Successfully replaced the AI Detector sidebar navigation with two new educational features: **Assessment Creation** and **Lesson Planning**. Both features integrate with OpenRouter API and include comprehensive modal-based interfaces.",
+      "",
+      "## Files Created",
+      "",
+      "### 1. assessment-creation.js (538 lines)",
+      "**Purpose:** Generate quizzes and tests with AI assistance",
+      ""
+    ],
+    "IMPLEMENTATION_SUMMARY.md": [
+      "# AI Detector & Slides Expansion - Implementation Summary",
+      "",
+      "## Overview",
+      "Complete overhaul of AI detector with OpenRouter integration and significant expansion of slides generation AI extraction capabilities.",
+      "",
+      "---",
+      "",
+      "## 1. AI DETECTOR COMPREHENSIVE UPGRADE",
+      "",
+      "### Integration with OpenRouter API"
+    ],
+    "index.css": [
+      "",
+      "",
+      "* {",
+      "box-sizing: border-box;",
+      "font-family: \"Segoe UI\", sans-serif;",
+      "}",
+      "",
+      "body {",
+      "margin: 0;",
+      "height: 100vh;"
+    ],
+    "index.html": [
+      "<!DOCTYPE html>",
+      "<html lang=\"en\">",
+      "<head>",
+      "<title>Teacher Login</title>",
+      "<link rel=\"stylesheet\" href=\"index.css\">",
+      "",
+      "<!-- Firebase SDK -->",
+      "<script src=\"https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js\"></script>",
+      "<script src=\"https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js\"></script>",
+      "<script src=\"https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js\"></script>"
+    ],
+    "index.js": [
+      "// List of valid access keys",
+      "const validKeys = [",
+      "\"ABCD123456\",",
+      "\"EFGH789012\",",
+      "\"IJKL345678\",",
+      "\"MNOP901234\",",
+      "\"QRST567890\",",
+      "\"UVWX123456\",",
+      "\"YZAB789012\",",
+      "\"CDEF345678\","
+    ],
+    "lesson-planning-deped.js": [
+      "```",
+      "// DepEd Daily Teaching Log Generator",
+      "const LESSON_PLAN_MODEL = 'openai/gpt-4o-mini';",
+      "```",
+      "const MAX_STORED_LESSON_PLANS = 25;",
+      "",
+      "let currentLessonPlan = null;",
+      "let lessonPlanHistory = [];",
+      "let editMode = false;",
+      ""
+    ],
+    "lesson-planning.css": [
+      "/* ===== LESSON PLANNING PAGE LAYOUT ===== */",
+      "",
+      "/* Main content area wrapper */",
+      ".lesson-planning-wrapper {",
+      "flex: 1;",
+      "overflow-y: auto;",
+      "display: flex;",
+      "flex-direction: column;",
+      "background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);",
+      "padding: 40px 30px;"
+    ],
+    "lesson-planning.html": [
+      "<!DOCTYPE html>",
+      "<html lang=\"en\">",
+      "<head>",
+      "<meta charset=\"UTF-8\" />",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>",
+      "<title>Lesson Planning - CHIPI</title>",
+      "<link rel=\"stylesheet\" href=\"mainpage.css\" />",
+      "<link rel=\"stylesheet\" href=\"lesson-planning.css\" />",
+      "",
+      "<!-- Firebase SDK -->"
+    ],
+    "lesson-planning.js": [
+      "// Lesson Planning Feature - Create structured lesson plans with AI assistance",
+      "const LESSON_PLAN_MODEL = 'openai/gpt-4o-mini';",
+      "const MAX_STORED_LESSON_PLANS = 25;",
+      "",
+      "let currentLessonPlan = null;",
+      "let lessonPlanHistory = [];",
+      "",
+      "// Initialize Lesson Planning",
+      "function initLessonPlanning() {",
+      "loadLessonPlanHistory();"
+    ],
+    "mainpage.css": [
+      "/* ===== CSS VARIABLES ===== */",
+      ":root {",
+      "--primary-color: #3b96ff;",
+      "--primary-hover: #2855c8;",
+      "--bg-color: #fafbfc;",
+      "--sidebar-bg: #ffffff;",
+      "--border-color: #e5e7eb;",
+      "--text-color: #1f2937;",
+      "--muted-text: #6b7280;",
+      "--accent-color: #f3f4f6;"
+    ],
+    "mainpage.html": [
+      "<!DOCTYPE html>",
+      "<html lang=\"en\">",
+      "<head>",
+      "<meta charset=\"UTF-8\" />",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>",
+      "<title>Chipi — AI Handbook for Teachers</title>",
+      "<link rel=\"stylesheet\" href=\"mainpage.css\" />",
+      "",
+      "<!-- Firebase SDK -->",
+      "<script src=\"https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js\"></script>"
+    ],
+    "mainpage.js": [
+      "// ===== ACCESS KEY =====",
+      "const accessKey = sessionStorage.getItem(\"chipi_access_key\");",
+      "",
+      "// API Configuration",
+      "const OPENROUTER_MODEL = \"openai/gpt-4o-mini\";",
+      "const OPENROUTER_URL = \"https://openrouter.ai/api/v1/chat/completions\";",
+      "const DEFAULT_OPENROUTER_API_KEY = OPENROUTER_API_KEY;",
+      "",
+      "// Get user-specific API key or fallback to default",
+      "function getUserAPIKey() {"
+    ],
+    "package-lock.json": [
+      "{",
+      "\"name\": \"chipi-backend\",",
+      "\"version\": \"1.0.0\",",
+      "\"lockfileVersion\": 3,",
+      "\"requires\": true,",
+      "\"packages\": {",
+      "\"\": {",
+      "\"name\": \"chipi-backend\",",
+      "\"version\": \"1.0.0\",",
+      "\"dependencies\": {"
+    ],
+    "package.json": [
+      "{",
+      "\"name\": \"chipi-backend\",",
+      "\"version\": \"1.0.0\",",
+      "\"description\": \"Backend proxy for Chipi to protect API keys.\",",
+      "\"main\": \"server.js\",",
+      "\"scripts\": {",
+      "\"start\": \"node server.js\"",
+      "},",
+      "\"dependencies\": {",
+      "\"axios\": \"^1.7.2\","
+    ],
+    "PAPERPLANE.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000 \u0000\u0000\u0000 \b\u0006\u0000\u0000\u0000szz�\u0000\u0000\u0000\tpHYs\u0000\u0000\u000b\u0013\u0000\u0000\u000b\u0013\u0001\u0000��\u0018\u0000\u0000\u0000�IDATx�헽\u0011\u0002!\u0018\u0005w��\u0006h�\u000e�\u0002",
+      "0�\u0005\u0013",
+      "�\u0012\u0002[�\u0005\u0013��\u00064#07\u0011ǀ19�\u0003�Û�7��\r��\u0003S��@��\u0011X1@�\u0007�W\u001f�\u0001XH\u0002�/\u0000�w`\u000f(\t\u0000�\u0000\u0010{\u0003v��&��\u0001\u0010{\u0005���\u0006��\u0000�=\u0003\u001bI\u0013Bb��q�\u0000���",
+      "\u0000EƘ�\u0000Y�h\u0001�^�(A��Ƅ�N\u0000�\t�\u0006\u0018�\tX��𒢡i}\u0010��G�k}\u0019�",
+      "���(�e�FK-{4�R+���|L�Ĳ��#O�5�d�:�\u0000\u0000\u0000\u0000IEND�B`�"
+    ],
+    "PENCIL.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000 \u0000\u0000\u0000 \b\u0006\u0000\u0000\u0000szz�\u0000\u0000\u0000\tpHYs\u0000\u0000\u000b\u0013\u0000\u0000\u000b\u0013\u0001\u0000��\u0018\u0000\u0000\u0000�IDATx���1",
+      "�@\u0010@��\u001cA�,\u0004/\u0016�f{=����V�\"؊ #B�\u0011��2�\u0014f`���Yv�w\u0016�\u00168\u00017`\u000f���\u001fL\u0003�\u0001y��>�m�\u0007�5���k\u0005�w�\u00110\u0005:e��#`H��+@\u001b�Y��Ya��궟\u000b\"�Otn�Ka��\u0012�{��W\u0013���z�<��\u0013\u0017�I���\u0011�\u0006�\u0011�\u0010��D�툗L\u001aq\u0002p�q�q�q�q�q�q�q�q�v\u001e0\u001b_��f��\u0000\u0000\u0000\u0000IEND�B`�"
+    ],
+    "QUICK_REFERENCE.md": [
+      "# Quick Reference - What's New",
+      "",
+      "## 🤖 AI DETECTOR OVERHAUL",
+      "",
+      "### New Capabilities",
+      "- **Integrated OpenRouter API** for advanced AI detection",
+      "- **Three-tier percentage breakdown**: Human-Written | Mixed | AI-Generated",
+      "- **Detects**: Phrases, statements, words, and structures",
+      "- **Hybrid Analysis**: Local patterns + AI intelligence",
+      "- **Beautiful UI**: Color-coded progress bars with gradient fills"
+    ],
+    "slides.css": [
+      ".slides-container {",
+      "max-width: 800px;",
+      "margin: 0 auto;",
+      "padding: 40px 20px;",
+      "background-color: #ffffff;",
+      "border-radius: 12px;",
+      "box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);",
+      "}",
+      "",
+      ".main-content {"
+    ],
+    "slides.html": [
+      "<!DOCTYPE html>",
+      "<html lang=\"en\">",
+      "<head>",
+      "<meta charset=\"UTF-8\" />",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>",
+      "<title>Chipi — Visual Slides</title>",
+      "<link rel=\"stylesheet\" href=\"mainpage.css\" />",
+      "<link rel=\"stylesheet\" href=\"slides.css\" />",
+      "",
+      "<!-- Firebase SDK -->"
+    ],
+    "slides.js": [
+      "// ===== SLIDES PRESENTATION SYSTEM WITH AI =====",
+      "",
+      "// API Configuration (same as mainpage.js)",
+      "const OPENROUTER_MODEL = \"openai/gpt-4o-mini\";",
+      "const OPENROUTER_URL = \"https://openrouter.ai/api/v1/chat/completions\";",
+      "",
+      "let currentSlideIndex = 0;",
+      "let slidesData = [];",
+      "let isEditMode = false;",
+      ""
+    ],
+    "STYLING_UPDATE_APPLIED.md": [
+      "# Assessment Creation & Lesson Planning - Feature Tab Styling Applied",
+      "",
+      "## Changes Summary",
+      "",
+      "Applied the same design rules from the sidebar feature tabs to the Assessment Creation and Lesson Planning modals.",
+      "",
+      "### Style Consistency Applied",
+      "",
+      "#### Color & Background",
+      "| Element | Before | After |"
+    ],
+    "UPDATES.md": [
+      "# AI Information Extraction Enhancement - Complete Summary",
+      "",
+      "## Overview",
+      "The slides.js file has been comprehensively updated to maximize AI-powered information extraction and improve slide presentation formatting. The system now extracts ALL elements, examples, groups, parts, and classifications with enhanced formatting.",
+      "",
+      "---",
+      "",
+      "## Key Changes Made",
+      "",
+      "### 1. **CRITICAL: Enhanced AI Prompt (analyzeContentWithOpenRouter)**"
+    ],
+    "USERLOGO.png": [
+      "�PNG",
+      "\u001a",
+      "\u0000\u0000\u0000\rIHDR\u0000\u0000\u0004\u0000\u0000\u0000\u0004\u0000\b\u0006\u0000\u0000\u0000\u001d+�\u0000\u0000\u0000\tpHYs\u0000\u0000\u000e�\u0000\u0000\u000e�\u0001�+\u000e\u001b\u0000\u0000\u0004�iTXtXML:com.adobe.xmp\u0000\u0000\u0000\u0000\u0000<?xpacket begin='﻿' id='W5M0MpCehiHzreSzNTczkc9d'?>",
+      "<x:xmpmeta xmlns:x='adobe:ns:meta/'>",
+      "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>",
+      "",
+      "<rdf:Description rdf:about=''",
+      "xmlns:Attrib='http://ns.attribution.com/ads/1.0/'>",
+      "<Attrib:Ads>",
+      "<rdf:Seq>"
+    ]
+  },
+  "importantFolders": [
+    {
+      "path": "c%3A\\Users\\RedMa\\Documents",
+      "category": "docs",
+      "fileCount": 1,
+      "primaryLanguage": "JavaScript"
+    }
+  ],
+  "readmeParagraphs": {},
+  "totals": {
+    "numFiles": 44,
+    "numDirs": 11,
+    "totalSizeBytes": 7111106,
+    "totalLinesOfCode": 5712
+  },
+  "fileCategories": {
+    "other": 27,
+    "source": 9,
+    "documentation": 6,
+    "config": 2
+  },
+  "linesOfCodePerLanguage": {
+    "JavaScript": 5712
+  },
+  "filesPerLanguage": {
+    "JavaScript": 9
+  },
+  "projectTypes": [
+    "JavaScript/Node.js"
+  ],
+  "frameworks": [],
+  "entryPoints": [],
+  "ciCdTools": [],
+  "packageManagers": [
+    "npm/yarn"
+  ],
+  "topLevelDirectories": [
+    {
+      "name": "c%3A",
+      "numFiles": 1,
+      "totalLoc": 81,
+      "dominantLanguage": "JavaScript"
+    },
+    {
+      "name": "decals",
+      "numFiles": 1,
+      "totalLoc": 0
+    }
+  ],
+  "detailedDirectories": [
+    {
+      "path": "c%3A",
+      "name": "c%3A",
+      "level": 1,
+      "numFiles": 1,
+      "totalLoc": 81,
+      "dominantLanguage": "JavaScript",
+      "category": "General",
+      "description": "General module with 1 files (JavaScript)",
+      "subdirectories": [
+        {
+          "path": "c%3A\\Users",
+          "name": "Users",
+          "level": 2,
+          "numFiles": 1,
+          "totalLoc": 81,
+          "dominantLanguage": "JavaScript",
+          "category": "General",
+          "description": "General module with 1 files (JavaScript)",
+          "subdirectories": [
+            {
+              "path": "c%3A\\Users\\RedMa",
+              "name": "RedMa",
+              "level": 3,
+              "numFiles": 1,
+              "totalLoc": 81,
+              "dominantLanguage": "JavaScript",
+              "category": "General",
+              "description": "General module with 1 files (JavaScript)",
+              "subdirectories": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "decals",
+      "name": "decals",
+      "level": 1,
+      "numFiles": 1,
+      "totalLoc": 0,
+      "category": "General",
+      "description": "General module with 1 files",
+      "subdirectories": []
+    }
+  ],
+  "architecturalInsights": {
+    "coreApplications": [],
+    "entryPointDetails": [],
+    "serviceArchitecture": {
+      "microservices": [],
+      "monoliths": [],
+      "libraries": []
+    },
+    "layeredArchitecture": {
+      "presentation": [],
+      "business": [],
+      "data": [],
+      "infrastructure": []
+    }
+  },
+  "largeFiles": [
+    {
+      "path": "CHIPI DL5.png",
+      "sizeMb": 1.02
+    }
+  ],
+  "dependencies": {
+    "production": [
+      "axios",
+      "cors",
+      "dotenv",
+      "express"
+    ],
+    "development": [],
+    "total": 4
+  },
+  "complexity": {
+    "averageFileSize": 129.8181818181818,
+    "maxFileSize": 10695.4752,
+    "nestedDepth": 0,
+    "estimatedComplexity": "low"
+  }
+}

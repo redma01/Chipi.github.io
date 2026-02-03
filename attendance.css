@@ -38,10 +38,12 @@
 #createSectionBtnEmpty {
     padding: 15px 30px;
     font-size: 1.2em;
+    font-weight: bold;
     background-color: var(--primary-orange);
     color: var(--text-color-light);
     border: none;
     border-radius: 8px;
+    width: 300px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -96,7 +98,7 @@
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 130px;
+    width: 180px;
 }
 
 #addStudentBtn:hover {
@@ -242,6 +244,7 @@
     color: #dc3545;
     line-height: 1;
     display: none; /* Hide by default */
+    margin-left: 100px;
 }
 
 .student-attendance-list.editing .delete-btn {
@@ -410,99 +413,75 @@
     -webkit-appearance: none;
 }
 
-.status-btn:hover {
-    background-color: #f1f3f5;
+/* Sections edit-mode delete control behavior */
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 4px;
 }
 
-.status-btn.active {
-    color: var(--text-color-light);
+.history-item:hover {
+  background: var(--border-color);
 }
 
-.status-btn.present.active {
-    background-color: #28a745;
-    border-color: #28a745;
+.history-item.selected {
+  background: #e6f9ff;
 }
 
-.status-btn.absent.active {
-    background-color: #dc3545;
-    border-color: #dc3545;
+.history-item.editing {
+  /* Additional styles for edit mode */
 }
 
-.status-btn.late.active {
-    background-color: var(--primary-orange);
-    border-color: var(--primary-orange);
-    color: var(--text-color-light);
+.icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
 }
 
-.status-btn.excused.active {
-    background-color: #6c757d;
-    border-color: #6c757d;
+.history-title {
+  font-weight: 500;
+  margin-bottom: 4px;
+  font-size: 14.5px;
 }
 
-#monthlyAbsenceView h3 {
-    margin-bottom: 15px;
-    font-size: 1.2em;
+.history-sub {
+  font-size: 12.5px;
+  color: var(--muted-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-#monthlyAbsenceView ul {
-    list-style: none;
-    padding: 0;
-}
-
-#monthlyAbsenceView li {
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.student-list-container {
-    margin-top: 20px;
-}
-
-#studentList, #attendanceStudentList ul {
-    list-style: none;
-    padding: 0;
-}
-
-#studentList li, #attendanceStudentList li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.student-actions button, .attendance-actions button {
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-.month-selector {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#currentMonth {
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-#monthlyAbsenceView {
-    margin-top: 10px;
+.history-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
 }
 
 .history-item .history-item-actions {
     display: none;
     align-items: center;
+    gap: 8px;
 }
 
 .history-list.editing .history-item .history-item-actions {
     display: flex;
 }
 
-.history-item.active {
-    background-color: #e6f9ff;
+.history-item .history-item-actions .delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
 }
 
 .history-item .delete-btn {
@@ -510,6 +489,7 @@
     background: none;
     border: none;
     cursor: pointer;
+    padding: 5px;
 }
 
 .modal {

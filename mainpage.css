@@ -181,8 +181,9 @@ display: flex;
   color: white;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: inherit;   /* inherit default */
+  font-weight: inherit; /* inherit default */
+  font-family: inherit; /* inherit default */
   cursor: pointer;
   transition: background-color 0.2s ease;
   text-decoration: none;
@@ -372,16 +373,10 @@ border: 0;
   margin-top: 40px;
 }
 
-#lessonPlanningBtn:hover {
-  background-color: #e0e0e0; /* A slightly darker shade for the hover state */
-  cursor: pointer;
-}
+
 
 .intro-image {
-  width: 150px;
-  height: 150px;
   margin-bottom: 20px;
-  height: auto; 
   border-radius: 12px;
   margin-top: -80px;
 }
@@ -654,6 +649,7 @@ background: var(--primary-hover);
   gap: 0px;
   margin-top: 16px;
   margin-left: -25px;
+  font: inherit; /* ensure descendants default to body font unless overridden */
 }
 
 .feature-tab-container {
@@ -675,6 +671,11 @@ background: var(--primary-hover);
   background-color: transparent;
   width: 100%;
   justify-content: flex-start;
+  font-size: inherit; /* use default body size */
+  font-family: inherit; /* use default body font */
+  font-weight: inherit; /* use default body weight */
+  color: var(--text-color);
+  padding: 10px 15px;
 }
 
 .feature-tab:hover {
@@ -686,42 +687,45 @@ background: var(--primary-hover);
 }
 
 .feature-header {
-  font-size: 15px;
+  font: inherit; /* use default text style */
 }
 
 
 .feature-tab-container span {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: inherit;  /* use default body size */
+  font-weight: inherit;/* use default body weight */
+  font-family: inherit;/* use default body font */
   color: var(--text-color);
 }
 
 
-#slidesBtn i {
-  background-color: #d8d5ff;
-  color: #7434ee;
+/* Unified icon style for Assessment and Lesson Planning */
+.lesson-plan-btn-icon-wrapper i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0; /* rely on fixed square size */
+}
+#assessmentBtn i,
+#lessonPlanningBtn i {
+  background-color: #dbeafe;
+  color: #2563eb;
 }
 
-#attendanceBtn i {
-  background-color: #ffdfac;
-  color: #ffa264;
+#aiChatBtn i, 
+#slidesBtn i, 
+#attendanceBtn i,
+#aidetectorBtn i {
+  background-color: #dbeafe;
+  color: #2563eb;
+  padding: 7px;
+  font-size: 17px;
 }
-
-#assessmentBtn i {
-  background-color: #9cffcc;
-  color: #19865d;
-}
-
-#aiDetectorBtn i {
-  background-color: #a9def9;
-  color: #2980b9;
-}
-
-#aiChatBtn i {
-  background-color: #a9def9;
-  color: #2980b9;
-}
-
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -749,6 +753,10 @@ background: var(--primary-hover);
 i {
   padding: 4px;
   border-radius: 5px;
+}
+/* Ensure global icon padding doesn't affect intro button icons */
+.lesson-plan-btn-icon-wrapper i {
+  padding: 0;
 }
 
 .LessonP {
@@ -830,9 +838,9 @@ i {
 }
 
 .lesson-plan-btn-icon-wrapper {
-    background-color: #ffbebe;
+    background-color: transparent;
     border-radius: 8px;
-    padding: 12px;
+    padding: 1px;
     margin-right: 16px;
     pointer-events: none;
 }
@@ -861,6 +869,10 @@ i {
 .lesson-plan-btn-subtitle {
     font-size: 12px;
     color: #6b7280;
+}
+
+.intro-buttons {
+    /* default block layout restored */
 }
 
 .intro-image {
