@@ -1,5 +1,9 @@
 // ===== ACCESS KEY =====
-const accessKey = sessionStorage.getItem("chipi_access_key");
+let accessKey = sessionStorage.getItem("chipi_access_key");
+if (!accessKey) {
+    accessKey = "PUBLIC";
+    sessionStorage.setItem("chipi_access_key", accessKey);
+}
 
 // API Configuration
 const OPENROUTER_MODEL = "openai/gpt-4o-mini";
@@ -26,7 +30,7 @@ const auth = firebase.auth();
 // ===== ELEMENTS =====
 // Elements will be defined inside attachUIHandlers to ensure DOM is loaded
 let appRoot, sidebar, historyList, addTabBtn, editHistoryBtn, messagesEl, userInputEl, sendBtn;
-let profileBtn, profileMenu, profileSettings, profileAbout, profileContact, profileLogout;
+let profileBtn, profileMenu, profileEmail, profileLogout;
 
 
 // ===== STATE =====
@@ -36,45 +40,38 @@ let tabCounter = 0;
 let editMode = false; // when true, history titles are editable and delete buttons are visible
 let isSending = false;
 // ===== AUTH CHECK =====
-if (!accessKey) {
-    // No access key, redirect to startup page
-    window.location.href = "index.html";
+// GitHub Pages: allow public session by default
+// Check if DOM is already loaded or wait for it
+if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', initializeApp);
 } else {
-    // Access key present, proceed with app initialization
-    // Check if DOM is already loaded or wait for it
-    if (document.readyState === 'loading') {
-        window.addEventListener('DOMContentLoaded', initializeApp);
-    } else {
-        initializeApp();
-    }
+    initializeApp();
+}
 
-    function initializeApp() {
-        // Define elements after DOM is loaded
-        appRoot = document.querySelector(".app");
-        sidebar = document.getElementById("sidebar");
-        historyList = document.getElementById("historyList");
-        addTabBtn = document.getElementById("addTabBtn");
-        editHistoryBtn = document.getElementById("editHistoryBtn");
-        messagesEl = document.getElementById("messages");
-        welcomeEl = document.getElementById("welcome");
-        userInputEl = document.getElementById("userInput");
-        sendBtn = document.getElementById("sendBtn");
-        profileBtn = document.getElementById('profileBtn');
-        profileMenu = document.getElementById('profileMenu');
-        profileSettings = document.getElementById('profileSettings');
-        profileAbout = document.getElementById('profileAbout');
-        profileContact = document.getElementById('profileContact');
+function initializeApp() {
+    // Define elements after DOM is loaded
+    appRoot = document.querySelector(".app");
+    sidebar = document.getElementById("sidebar");
+    historyList = document.getElementById("historyList");
+    addTabBtn = document.getElementById("addTabBtn");
+    editHistoryBtn = document.getElementById("editHistoryBtn");
+    messagesEl = document.getElementById("messages");
+    welcomeEl = document.getElementById("welcome");
+    userInputEl = document.getElementById("userInput");
+    sendBtn = document.getElementById("sendBtn");
+    profileBtn = document.getElementById('profileBtn');
+    profileMenu = document.getElementById('profileMenu');
+        profileEmail = document.getElementById('profileEmail');
         profileLogout = document.getElementById('profileLogout');
 
-        chats = loadChats();
-        tabCounter = computeInitialTabCounter(chats);
-        renderHistory();
-        applySidebarLayout();
-        clearChatContent();
-        restoreLastChat();
-        attachUIHandlers();
-        validateDOM();
-    }
+    chats = loadChats();
+    tabCounter = computeInitialTabCounter(chats);
+    renderHistory();
+    applySidebarLayout();
+    clearChatContent();
+    restoreLastChat();
+    attachUIHandlers();
+    validateDOM();
 }
 
 // Clear all content in the chat section
@@ -193,18 +190,20 @@ if (e.key === 'Escape' && profileMenu && profileMenu.classList.contains('open'))
     });
 
     // Menu item actions
-    profileSettings?.addEventListener('click', () => {
-      toggleProfileMenu(false);
-      showToast('API access is managed by the server. No API key is required in the browser.');
-    });
-    profileAbout?.addEventListener('click', () => { toggleProfileMenu(false); showToast('Chipi — AI Handbook for Teachers — v1.0'); });
-    profileContact?.addEventListener('click', () => { toggleProfileMenu(false); window.location.href = 'mailto:support@chipi.example'; });
     profileLogout?.addEventListener('click', () => {
       toggleProfileMenu(false);
-      // Clear access key and redirect to startup page
       sessionStorage.removeItem("chipi_access_key");
-      window.location.href = "index.html";
+      if (firebase?.auth) {
+        firebase.auth().signOut().finally(() => {
+          window.location.href = "index.html";
+        });
+      } else {
+        window.location.href = "index.html";
+      }
     });
+
+    // Profile display
+    setProfileEmail();
 
     // Keyboard activation for menu items
     profileMenu?.addEventListener && profileMenu.addEventListener('keydown', (e) => {
@@ -239,6 +238,17 @@ function validateDOM() {
   const missing = required.filter(id => !document.getElementById(id));
   if (missing.length) {
     reportRuntimeError('Missing UI elements: ' + missing.join(', '));
+  }
+}
+
+function setProfileEmail() {
+  if (!profileEmail) return;
+
+  const currentUser = firebase?.auth?.().currentUser;
+  if (currentUser?.email) {
+    profileEmail.textContent = currentUser.email;
+  } else {
+    profileEmail.textContent = 'Signed in';
   }
 }
 
