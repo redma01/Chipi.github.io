@@ -211,7 +211,7 @@ EXPANDED REQUEST:
 
 ### API Configuration
 ```javascript
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = "REDACTED"
 OPENROUTER_MODEL = "openai/gpt-4o-mini"
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 ```
