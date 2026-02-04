@@ -3,7 +3,7 @@
 
 // API Configuration
 const OPENROUTER_MODEL = "openai/gpt-4o-mini";
-const OPENROUTER_URL = "https://asia-southeast1-chipi-d90e8.cloudfunctions.net/openrouter";
+const OPENROUTER_URL = "/openrouter";
 
 // ===== COMPREHENSIVE AI INDICATORS DATABASE =====
 const AI_INDICATORS = {

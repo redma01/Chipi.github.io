@@ -2,14 +2,73 @@
 
 // API Configuration (same as mainpage.js)
 const OPENROUTER_MODEL = "openai/gpt-4o-mini";
-const OPENROUTER_URL = "https://asia-southeast1-chipi-d90e8.cloudfunctions.net/openrouter";
+const OPENROUTER_URL = "/openrouter";
 
 let currentSlideIndex = 0;
 let slidesData = [];
 let isEditMode = false;
 
+// ===== FIRESTORE PERSISTENCE =====
+const STORAGE_MODE = "local"; // "local" disables Firestore persistence
+function getSlidesUserId() {
+  try {
+    return STORAGE_MODE === "local" ? 'local' : (firebase?.auth?.().currentUser?.uid || 'public');
+  } catch (e) {
+    return 'local';
+  }
+}
+
+async function hydrateSlidesFromFirestore() {
+  if (STORAGE_MODE === "local") return [];
+  const userId = getSlidesUserId();
+  if (typeof db === 'undefined' || !db) {
+    console.warn('Firestore not available');
+    return null;
+  }
+
+  try {
+    const doc = await db.collection('users').doc(userId).collection('data').doc('slidesHistory').get();
+    if (doc.exists) {
+      const data = doc.data();
+      if (data?.history && data.history.length > 0) {
+        const localStored = localStorage.getItem('chipi_slides_history');
+        const localSlides = localStored ? JSON.parse(localStored) : [];
+        if (localSlides.length === 0) {
+          return data.history;
+        }
+      }
+    }
+  } catch (e) {
+    console.warn('Failed to hydrate slides from Firestore:', e);
+  }
+  return null;
+}
+
+function saveSlidesToFirestore(history) {
+  if (STORAGE_MODE === "local") return;
+  const userId = getSlidesUserId();
+  if (typeof db === 'undefined' || !db) return;
+
+  try {
+    db.collection('users').doc(userId).collection('data').doc('slidesHistory').set({
+      history,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true }).catch(e => {
+      console.warn('Failed to save slides to Firestore:', e);
+    });
+  } catch (e) {
+    console.warn('Firestore save error:', e);
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Firestore hydration
+    hydrateSlidesFromFirestore().then(remoteHistory => {
+        if (remoteHistory) {
+            localStorage.setItem('chipi_slides_history', JSON.stringify(remoteHistory));
+        }
+    });
+
     // PDF Upload Handler
     const pdfUpload = document.getElementById('pdf-upload');
     const lessonContent = document.getElementById('lesson-content');
@@ -1187,6 +1246,7 @@ function saveCurrentSlides() {
     // Save to localStorage
     try {
         localStorage.setItem('chipi_slides_history', JSON.stringify(history));
+        saveSlidesToFirestore(history);
         alert(`✅ Slides saved successfully!\nTitle: ${slideTitle}\nTime: ${timestamp}`);
         renderSlidesHistory();
     } catch (e) {
@@ -1269,6 +1329,7 @@ function deleteSlidesFromHistory(id) {
 
     try {
         localStorage.setItem('chipi_slides_history', JSON.stringify(history));
+        saveSlidesToFirestore(history);
         renderSlidesHistory();
         alert('Slides deleted successfully');
     } catch (e) {

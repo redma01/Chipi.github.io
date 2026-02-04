@@ -10,5 +10,8 @@
       "**/node_modules/**",
       "functions/**"
     ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

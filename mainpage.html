@@ -10,6 +10,23 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <script>
+    // Firebase config (shared with index.html)
+    const firebaseConfig = {
+      apiKey: "AIzaSyC41YyTGkW2XcR4kjJ5NyqdocPl42Um8rM",
+      authDomain: "chipi-d90e8.firebaseapp.com",
+      projectId: "chipi-d90e8",
+      storageBucket: "chipi-d90e8.firebasestorage.app",
+      messagingSenderId: "852453728156",
+      appId: "1:852453728156:web:0ae1846fdf49b9cb43f259",
+      measurementId: "G-7YW2GKMH5R"
+    };
+
+    // Initialize Firebase if not already initialized
+    if (typeof firebase !== "undefined" && (!firebase.apps || !firebase.apps.length)) {
+      firebase.initializeApp(firebaseConfig);
+    }
+  </script>
 
   <!-- Webkit Icons-->
   <script src="https://kit.fontawesome.com/bdc1269674.js" crossorigin="anonymous"></script>
@@ -22,13 +39,11 @@
     </div>
     <div class="header-actions">
       <div class="profile" id="profile">
+        <span class="profile-email" id="profileEmail">Signed out</span>
         <button id="profileBtn" class="profile-btn" aria-haspopup="true" aria-expanded="false" title="Account">
           <img class="avatar" src="CHIPI CHATLOGO.png" alt="Chipi"/>
         </button>
         <div class="profile-menu" id="profileMenu" role="menu" aria-hidden="true">
-          <button role="menuitem" class="menu-item" id="profileSettings">Settings</button>
-          <button role="menuitem" class="menu-item" id="profileAbout">About</button>
-          <button role="menuitem" class="menu-item" id="profileContact">Contact</button>
           <button role="menuitem" class="menu-item" id="profileLogout">Logout</button>
         </div>
       </div>
