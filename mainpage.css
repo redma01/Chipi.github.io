@@ -62,6 +62,18 @@ display: flex;
 
 .profile {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-email {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile-btn {
@@ -369,7 +381,7 @@ border: 0;
     display: flex;
     align-items: center;
   pointer-events: auto;
-  padding: ;
+  padding: 10px 16px;
   margin-top: 40px;
 }
 
@@ -960,3 +972,4 @@ i {
 .message.ai .bubble a:hover {
   text-decoration: underline;
 }
+

@@ -1,4 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ===== FIRESTORE PERSISTENCE HELPERS =====
+    function getAttendanceUserId() {
+        try {
+            const user = firebase?.auth?.().currentUser;
+            return user?.uid || 'public';
+        } catch (e) {
+            return 'public';
+        }
+    }
+
+    async function hydrateAttendanceFromFirestore() {
+        const userId = getAttendanceUserId();
+        if (typeof db === 'undefined' || !db) {
+            console.warn('Firestore not available');
+            return;
+        }
+
+        try {
+            const doc = await db.collection('users').doc(userId).collection('data').doc('attendance').get();
+            if (doc.exists) {
+                const data = doc.data();
+                if (data?.appData && Object.keys(data.appData.sections || {}).length > 0) {
+                    const localStored = localStorage.getItem('attendanceApp');
+                    const localData = localStored ? JSON.parse(localStored) : null;
+                    if (!localData || Object.keys(localData.sections || {}).length === 0) {
+                        appData = data.appData;
+                        localStorage.setItem('attendanceApp', JSON.stringify(appData));
+                        initializeApp();
+                    }
+                }
+            }
+        } catch (e) {
+            console.warn('Failed to hydrate attendance from Firestore:', e);
+        }
+    }
+
+    function saveAttendanceToFirestore() {
+        const userId = getAttendanceUserId();
+        if (typeof db === 'undefined' || !db) return;
+
+        try {
+            db.collection('users').doc(userId).collection('data').doc('attendance').set({
+                appData,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            }, { merge: true }).catch(e => {
+                console.warn('Failed to save attendance to Firestore:', e);
+            });
+        } catch (e) {
+            console.warn('Firestore save error:', e);
+        }
+    }
+
+    // Initialize Firestore hydration
+    hydrateAttendanceFromFirestore();
+
     const addStudentBtn = document.getElementById('addStudentBtn');
     const studentNameInput = document.getElementById('studentNameInput');
     const studentList = document.getElementById('studentList');
@@ -319,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function saveData() {
         localStorage.setItem('attendanceApp', JSON.stringify(appData));
+        saveAttendanceToFirestore();
     }
 
     tabs.forEach(tab => {

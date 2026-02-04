@@ -6,11 +6,69 @@ const MAX_STORED_LESSON_PLANS = 25;
 let currentLessonPlan = null;
 let lessonPlanHistory = [];
 
+// ===== FIRESTORE PERSISTENCE =====
+function getLessonPlanUserId() {
+  try {
+    const user = firebase?.auth?.().currentUser;
+    return user?.uid || 'public';
+  } catch (e) {
+    return 'public';
+  }
+}
+
+async function hydrateLessonPlansFromFirestore() {
+  const userId = getLessonPlanUserId();
+  if (typeof db === 'undefined' || !db) {
+    console.warn('Firestore not available');
+    return;
+  }
+
+  try {
+    const doc = await db.collection('users').doc(userId).collection('data').doc('lessonPlans').get();
+    if (doc.exists) {
+      const data = doc.data();
+      if (data?.plans && data.plans.length > 0) {
+        const localStored = localStorage.getItem('lessonPlanHistory');
+        const localPlans = localStored ? JSON.parse(localStored) : [];
+        if (localPlans.length === 0) {
+          lessonPlanHistory = data.plans;
+        } else {
+          lessonPlanHistory = localPlans;
+        }
+        localStorage.setItem('lessonPlanHistory', JSON.stringify(lessonPlanHistory));
+      }
+    }
+  } catch (e) {
+    console.warn('Failed to hydrate lesson plans from Firestore:', e);
+  }
+}
+
+function saveLessonPlansToFirestore() {
+  const userId = getLessonPlanUserId();
+  if (typeof db === 'undefined' || !db) return;
+
+  try {
+    db.collection('users').doc(userId).collection('data').doc('lessonPlans').set({
+      plans: lessonPlanHistory,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true }).catch(e => {
+      console.warn('Failed to save lesson plans to Firestore:', e);
+    });
+  } catch (e) {
+    console.warn('Firestore save error:', e);
+  }
+}
 
 // Initialize Lesson Planning
 function initLessonPlanning() {
   loadLessonPlanHistory();
   attachLessonPlanEventListeners();
+
+  if (typeof firebase !== 'undefined' && firebase?.auth) {
+    firebase.auth().onAuthStateChanged(() => {
+      hydrateLessonPlansFromFirestore();
+    });
+  }
 }
 
 // Attach event listeners for lesson planning form
@@ -290,7 +348,6 @@ By the end of this lesson, students will be able to:
   };
 }
 
-// Save lesson plan to history
 function saveLessonPlanToHistory(lessonPlan) {
   lessonPlanHistory.unshift(lessonPlan);
   
@@ -299,6 +356,7 @@ function saveLessonPlanToHistory(lessonPlan) {
   }
 
   localStorage.setItem('lessonPlanHistory', JSON.stringify(lessonPlanHistory));
+  saveLessonPlansToFirestore();
 }
 
 // Load lesson plan history
