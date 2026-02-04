@@ -1,14 +1,20 @@
 {
-  "functions": {
-    "source": "functions"
-  },
   "hosting": {
     "public": ".",
     "ignore": [
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**",
-      "functions/**"
+      "server.js",
+      "package.json",
+      "package-lock.json",
+      ".env",
+      ".github/**",
+      ".qodo/**",
+      ".vscode/**",
+      "netlify/**",
+      "functions/**",
+      "node_modules/**",
+      "*.md",
+      "**/.*"
     ]
   },
   "storage": {

@@ -1,0 +1,7 @@
+name = "chipi-openrouter"
+main = "worker.js"
+compatibility_date = "2024-06-01"
+
+# TODO: Replace with your Cloudflare account ID
+account_id = "49f100aed948f286714efcc07d1e5fc5"
+
