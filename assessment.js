@@ -6,6 +6,59 @@ let assessmentHistory = [];
 let currentAssessment = null;
 let editMode = false; // For edit/delete functionality
 
+// ===== FIRESTORE PERSISTENCE =====
+function getAssessmentUserId() {
+  try {
+    const user = firebase?.auth?.().currentUser;
+    return user?.uid || 'public';
+  } catch (e) {
+    return 'public';
+  }
+}
+
+async function hydrateAssessmentsFromFirestore() {
+  const userId = getAssessmentUserId();
+  if (typeof db === 'undefined' || !db) {
+    console.warn('Firestore not available');
+    return;
+  }
+
+  try {
+    const doc = await db.collection('users').doc(userId).collection('data').doc('assessments').get();
+    if (doc.exists) {
+      const data = doc.data();
+      if (data?.assessments && data.assessments.length > 0) {
+        const localStored = localStorage.getItem('assessmentHistory');
+        const localAssessments = localStored ? JSON.parse(localStored) : [];
+        if (localAssessments.length === 0) {
+          assessmentHistory = data.assessments;
+        } else {
+          assessmentHistory = localAssessments;
+        }
+        localStorage.setItem('assessmentHistory', JSON.stringify(assessmentHistory));
+        renderAssessmentHistory();
+      }
+    }
+  } catch (e) {
+    console.warn('Failed to hydrate assessments from Firestore:', e);
+  }
+}
+
+function saveAssessmentsToFirestore() {
+  const userId = getAssessmentUserId();
+  if (typeof db === 'undefined' || !db) return;
+
+  try {
+    db.collection('users').doc(userId).collection('data').doc('assessments').set({
+      assessments: assessmentHistory,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true }).catch(e => {
+      console.warn('Failed to save assessments to Firestore:', e);
+    });
+  } catch (e) {
+    console.warn('Firestore save error:', e);
+  }
+}
 
 // Initialize assessment page
 function initAssessmentPage() {
@@ -14,13 +67,19 @@ function initAssessmentPage() {
   setupProfileMenu();
   setupEditHistoryButton();
   setupChatInterface();
-  
+
   // Wait for DOM elements to be ready before setting up handlers
   setTimeout(() => {
     setupFileUpload();
     setupTabSwitching();
     setupFormHandling();
   }, 100);
+
+  if (typeof firebase !== 'undefined' && firebase?.auth) {
+    firebase.auth().onAuthStateChanged(() => {
+      hydrateAssessmentsFromFirestore();
+    });
+  }
 }
 
 // Setup file upload functionality
@@ -570,6 +629,7 @@ function saveAssessmentToHistory(assessment) {
     assessmentHistory = assessmentHistory.slice(0, 25);
   }
   localStorage.setItem('assessmentHistory', JSON.stringify(assessmentHistory));
+  saveAssessmentsToFirestore();
   renderAssessmentHistory();
 }
 

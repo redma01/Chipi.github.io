@@ -1,36 +1,32 @@
 
-// Access keys are now validated server-side for security
+// GitHub Pages: Firebase Auth (Google) popup
 
 function login() {
-    const accessKey = document.getElementById("accessKey").value.trim().toUpperCase();
     const message = document.getElementById("message");
+    if (message) {
+        message.textContent = "Signing in with Google...";
+        message.style.color = "#2c7be5";
+    }
 
-    message.textContent = "Validating...";
-    message.style.color = "#2c7be5";
-
-    // Validate key server-side
-    fetch("/api/validate-key", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ accessKey })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // Valid key, store session token
-            sessionStorage.setItem("chipi_session", data.token);
-            message.textContent = "Access granted! Redirecting...";
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth
+        .signInWithPopup(provider)
+        .then((result) => {
+            const user = result?.user;
+            const accessKey = (user?.uid || "PUBLIC").toUpperCase();
+            sessionStorage.setItem("chipi_access_key", accessKey);
+            if (message) {
+                message.textContent = "Signed in! Redirecting...";
+            }
             setTimeout(() => {
                 window.location.href = "mainpage.html";
-            }, 1000);
-        } else {
-            message.style.color = "red";
-            message.textContent = "Invalid access key. Please try again.";
-        }
-    })
-    .catch(error => {
-        message.style.color = "red";
-        message.textContent = "Connection error. Please try again.";
-        console.error("Login error:", error);
-    });
+            }, 300);
+        })
+        .catch((error) => {
+            console.error("Google sign-in error:", error);
+            if (message) {
+                message.style.color = "red";
+                message.textContent = "Google sign-in failed. Please try again.";
+            }
+        });
 }
