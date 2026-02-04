@@ -58,7 +58,7 @@ export default {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: model || "openai/gpt-3.5-turbo",
+        model: model || "openrouter/free",
         messages,
         temperature,
         max_tokens

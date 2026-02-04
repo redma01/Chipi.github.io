@@ -1,5 +1,5 @@
 // Assessment Page Handler
-const ASSESSMENT_MODEL = 'openai/gpt-3.5-turbo';
+const ASSESSMENT_MODEL = 'openrouter/free';
 const OPENROUTER_URL = 'https://chipiai.redmarizer.workers.dev';
 let selectedFile = null;
 let assessmentHistory = [];

@@ -1,5 +1,5 @@
 // DepEd Daily Teaching Log Generator
-const LESSON_PLAN_MODEL = 'openai/gpt-3.5-turbo';
+const LESSON_PLAN_MODEL = 'openrouter/free';
 const OPENROUTER_URL = 'https://chipiai.redmarizer.workers.dev';
 const MAX_STORED_LESSON_PLANS = 25;
 
