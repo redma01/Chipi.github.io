@@ -2,8 +2,8 @@
 // Inspired by GPTZero, ZeroGPT, Quillbot AI Detection
 
 // API Configuration
-const OPENROUTER_MODEL = "openai/gpt-4o-mini";
-const OPENROUTER_URL = "/openrouter";
+const OPENROUTER_MODEL = "openai/gpt-3.5-turbo";
+const OPENROUTER_URL = "https://chipiai.redmarizer.workers.dev";
 
 // ===== COMPREHENSIVE AI INDICATORS DATABASE =====
 const AI_INDICATORS = {

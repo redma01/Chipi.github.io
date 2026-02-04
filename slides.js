@@ -1,8 +1,8 @@
 // ===== SLIDES PRESENTATION SYSTEM WITH AI =====
 
 // API Configuration (same as mainpage.js)
-const OPENROUTER_MODEL = "openai/gpt-4o-mini";
-const OPENROUTER_URL = "/openrouter";
+const OPENROUTER_MODEL = "openai/gpt-3.5-turbo";
+const OPENROUTER_URL = "https://chipiai.redmarizer.workers.dev";
 
 let currentSlideIndex = 0;
 let slidesData = [];
