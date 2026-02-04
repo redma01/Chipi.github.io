@@ -58,7 +58,7 @@ export default {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: model || "openai/gpt-4o-mini",
+        model: model || "openai/gpt-3.5-turbo",
         messages,
         temperature,
         max_tokens
