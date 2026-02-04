@@ -1,5 +1,6 @@
 
 // GitHub Pages: Firebase Auth (Google) popup
+// Dev bypass removed for production safety.
 
 function login() {
     const message = document.getElementById("message");
