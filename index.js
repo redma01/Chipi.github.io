@@ -1,5 +1,12 @@
 
 // GitHub Pages: Firebase Auth (Google) popup
+// Dev bypass for local preview
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.origin === "http://127.0.0.1:5500") {
+        sessionStorage.setItem("chipi_access_key", "PUBLIC");
+        window.location.href = "mainpage.html";
+    }
+});
 
 function login() {
     const message = document.getElementById("message");
